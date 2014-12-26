@@ -247,7 +247,7 @@
 
 
 ;;;;; theme
-(load-theme 'solarized-dark t)
+(load-theme 'solarized-light t)
 
 ;;;;;; defaults
 (tool-bar-mode -1)
@@ -316,3 +316,7 @@
 (ac-set-trigger-key "<tab>")
 
 (global-set-key (kbd "M-/") 'auto-complete)
+
+;;;;;;;; Set numbers to lines
+(global-linum-mode t)
+
