@@ -320,3 +320,5 @@
 ;;;;;;;; Set numbers to lines
 (global-linum-mode t)
 
+;;;;;;; Save backup~ file in a different place
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
