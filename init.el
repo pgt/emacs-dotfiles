@@ -94,8 +94,7 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-l") 'helm-buffers-list)
-
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "s-t") 'helm-projectile-find-file)
 
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
@@ -124,7 +123,7 @@
 ;; helm integration for opening projects
 
 (defun helm-rr-open-project ()
-  "Bring up a Spotify search interface in helm."
+  "Bring up a Project search interface in helm."
   (interactive)
   (helm :sources '(helm-source-list-projects)
      :buffer "*helm-list-projects*"))
@@ -247,7 +246,7 @@
 
 
 ;;;;; theme
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 
 ;;;;;; defaults
 (tool-bar-mode -1)
@@ -322,3 +321,15 @@
 
 ;;;;;;; Save backup~ file in a different place
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(initial-buffer-choice "~/code"))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
