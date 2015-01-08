@@ -1,5 +1,7 @@
-;;;;; Package config
 
+;;; package ---- Summary;
+
+;;; Code
 (require 'package)
 (package-initialize)
 
@@ -32,6 +34,7 @@
     popup
     solarized-theme
     inf-ruby
+    rvm					
     rspec-mode
     rhtml-mode
     rubocop
@@ -257,7 +260,6 @@
 
 (global-anzu-mode t)
 
-
 ;;;;;; keybindings
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
@@ -274,13 +276,22 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 
+;;; RVM
+(require 'rvm)
+;; use rvm’s default ruby for the current Emacs session
+(rvm-use-default)
 
 ;;;;;; ruby config
 (require 'rspec-mode)
-(add-hook 'ruby-mode-hook 'rspec-mode)
-(setq rspec-use-rake-when-possible nil)
+(defadvice rspec-compile (around rspec-compile-around)
+  "Use BASH shell for running the specs because of ZSH issues."
+  (let ((shell-file-name "/bin/bash"))
+    ad-do-it))
 
-(setq ruby-insert-encoding-magic-comment nil)
+(ad-activate 'rspec-compile)
+
+(setq-default rspec-use-rvm t)
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 ;;;;;;;;; autocomplete
 (require 'auto-complete-config)
@@ -292,6 +303,7 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
+	    (rvm-activate-corresponding-ruby)
             (make-local-variable 'ac-ignores)
             ;; ruby keywords
             (add-to-list 'ac-ignores "do")
@@ -305,14 +317,6 @@
             (add-to-list 'ac-ignores "while")))
 
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
-(define-key ac-complete-mode-map "\C-p" 'ac-previous)
-
-;; complete with tab, return and \C-m
-(define-key ac-complete-mode-map "\r" 'ac-complete)
-(define-key ac-complete-mode-map "\C-m" 'ac-complete)
-
-(ac-set-trigger-key "TAB")
-(ac-set-trigger-key "<tab>")
 
 (global-set-key (kbd "M-/") 'auto-complete)
 
@@ -333,3 +337,34 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;;open the spec of a class
+(defun senny-ruby-open-spec-other-buffer ()
+  (interactive)
+  (when (featurep 'rspec-mode)
+    (let ((source-buffer (current-buffer))
+          (other-buffer (progn
+                          (rspec-toggle-spec-and-target)
+                          (current-buffer))))
+      (switch-to-buffer source-buffer)
+      (pop-to-buffer other-buffer))))
+
+(eval-after-load 'ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "C-c , ,") 'senny-ruby-open-spec-other-buffer)))
+
+;; String interpolation
+(defun senny-ruby-interpolate ()
+  "In a double quoted string, interpolate."
+  (interactive)
+  (insert "#")
+  (when (and
+         (looking-back "\".*")
+         (looking-at ".*\""))
+    (insert "{}")
+    (backward-char 1)))
+
+(eval-after-load 'ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
+;; (put 'dired-find-alternate-file 'disabled nil)
