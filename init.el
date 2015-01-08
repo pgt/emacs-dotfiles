@@ -1,4 +1,3 @@
-
 ;;; package ---- Summary;
 
 ;;; Code
@@ -368,3 +367,9 @@
   '(progn
      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 ;; (put 'dired-find-alternate-file 'disabled nil)
+
+;;; Change winddow with C-tab
+(global-set-key [C-tab] 
+    (lambda ()
+      (interactive)
+      (other-window -1)))
