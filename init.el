@@ -385,3 +385,9 @@
 (setq powerline-color1 "grey22")
 (setq powerline-color2 "grey40")
 (setq powerline-arrow-shape 'arrow)   ;; give your mode-line curves
+
+;;; Flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;;; Rubocop
+(add-hook 'ruby-mode-hook 'rubocop-mode)
