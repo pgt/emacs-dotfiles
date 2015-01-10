@@ -391,3 +391,7 @@
 
 ;;; Rubocop
 (add-hook 'ruby-mode-hook 'rubocop-mode)
+
+;;; Auto reload buffer when file change
+;;; Necessary when switch between branches of git
+(global-auto-revert-mode t)
