@@ -33,7 +33,7 @@
     popup
     solarized-theme
     inf-ruby
-    rvm					
+    rvm
     rspec-mode
     rhtml-mode
     rubocop
@@ -99,6 +99,10 @@
 (global-set-key (kbd "s-t") 'helm-projectile-find-file)
 
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
+
+(global-set-key (kbd "s-f") 'isearch-forward)
+(global-set-key (kbd "s-F") 'ag-project)
+(global-set-key (kbd "s-/") 'comment-dwim)
 
 ;; helm better navigation
 (define-key helm-find-files-map (kbd "<backspace>") 'helm-find-files-sensitive-backspace)
@@ -369,7 +373,7 @@
 ;; (put 'dired-find-alternate-file 'disabled nil)
 
 ;;; Change winddow with C-tab
-(global-set-key [C-tab] 
+(global-set-key [C-tab]
     (lambda ()
       (interactive)
       (other-window -1)))
@@ -391,3 +395,30 @@
 
 ;;; Rubocop
 (add-hook 'ruby-mode-hook 'rubocop-mode)
+
+;;; Rainbow-mode
+(require 'rainbow-mode)
+(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
+
+(my-global-rainbow-mode 1)
+
+;; Rainbow-delimiters
+;;(require 'rainbow-delimiters)
+;;(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+
+;;; Open line above
+(defun smart-open-line-above ()
+  "Insert an empty line above the current line.
+Position the cursor at it's beginning, according to the current mode."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+(global-set-key [(control shift return)] 'smart-open-line-above)
+
+;;; Delete trailing space automatically on save
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
