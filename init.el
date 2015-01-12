@@ -426,3 +426,8 @@ Position the cursor at it's beginning, according to the current mode."
 ;;; Auto reload buffer when file change
 ;;; Necessary when switch between branches of git
 (global-auto-revert-mode t)
+
+
+;; Expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
