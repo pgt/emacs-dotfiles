@@ -94,6 +94,7 @@
 
 ;; -- keybindings --
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "s-N") 'helm-M-x)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-l") 'helm-buffers-list)
 (global-set-key (kbd "s-t") 'helm-projectile-find-file)
@@ -426,7 +427,6 @@ Position the cursor at it's beginning, according to the current mode."
 ;;; Auto reload buffer when file change
 ;;; Necessary when switch between branches of git
 (global-auto-revert-mode t)
-
 
 ;; Expand region
 (require 'expand-region)
