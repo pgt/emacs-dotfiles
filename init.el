@@ -398,11 +398,11 @@
 (add-hook 'ruby-mode-hook 'rubocop-mode)
 
 ;;; Rainbow-mode
-(require 'rainbow-mode)
-(define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
-  (lambda () (rainbow-mode 1)))
+;; (require 'rainbow-mode)
+;; (define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
+;;   (lambda () (rainbow-mode 1)))
 
-(my-global-rainbow-mode 1)
+;; (my-global-rainbow-mode 1)
 
 ;; Rainbow-delimiters
 ;;(require 'rainbow-delimiters)
