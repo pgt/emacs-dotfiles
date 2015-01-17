@@ -103,7 +103,7 @@
 
 (global-set-key (kbd "s-f") 'isearch-forward)
 (global-set-key (kbd "s-F") 'ag-project)
-(global-set-key (kbd "s-/") 'comment-dwim)
+(global-set-key (kbd "s-/") 'comment-dwim-line)
 
 ;; helm better navigation
 (define-key helm-find-files-map (kbd "<backspace>") 'helm-find-files-sensitive-backspace)
@@ -431,3 +431,11 @@ Position the cursor at it's beginning, according to the current mode."
 ;; Expand region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+;; Comment in initial of file
+(defun comment-dwim-line (&optional arg)
+  (interactive "*P")
+  (comment-normalize-vars)
+  (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
+      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+    (comment-dwim arg)))
