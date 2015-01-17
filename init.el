@@ -105,6 +105,12 @@
 (global-set-key (kbd "s-F") 'ag-project)
 (global-set-key (kbd "s-/") 'comment-dwim-line)
 
+(global-set-key (kbd "C-j") 'backward-word) ;; navigation
+(global-set-key (kbd "C-k") 'forward-word) ;; navigation
+
+(global-set-key (kbd "C-o") 'kill-line) ;; kill line
+
+
 ;; helm better navigation
 (define-key helm-find-files-map (kbd "<backspace>") 'helm-find-files-sensitive-backspace)
 (define-key helm-find-files-map (kbd "<DEL>") 'helm-find-files-sensitive-backspace)
