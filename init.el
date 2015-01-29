@@ -29,6 +29,7 @@
     neotree ;; Like NerdTree on Vim, F8
     paredit ;; TODO
     idle-highlight-mode
+    gruvbox-theme
     find-file-in-project
     popup
     solarized-theme
@@ -259,7 +260,7 @@
 
 
 ;;;;; theme
-(load-theme 'solarized-dark t)
+(load-theme 'gruvbox t)
 
 ;;;;;; defaults
 (tool-bar-mode -1)
@@ -333,20 +334,31 @@
 ;;;;;;;; Set numbers to lines
 (global-linum-mode t)
 
-;;;;;;; Save backup~ file in a different place
+;;;;;;; Save ~ file in a different place
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
+
+;; Put autosave files (ie #foo#) in ~/.emacs.d/.
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
+ '(custom-safe-themes
+   (quote
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a655f17225ad0a7190c79602593563191b7640ddebbb8c8fbd80c9d82faff1c6" "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" default)))
  '(initial-buffer-choice "~/code"))
+;; create the autosave dir if necessary, since emacs won't.
+(make-directory "~/.emacs.d/autosaves/" t)
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 ;;open the spec of a class
 (defun senny-ruby-open-spec-other-buffer ()
@@ -389,9 +401,7 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
 (require 'powerline)
 
-(custom-set-faces
- '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
- '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
+
 
 (setq powerline-color1 "grey22")
 (setq powerline-color2 "grey40")
