@@ -461,3 +461,11 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Highligh the lines
 (hl-line-mode 1) ;; See later better
+
+;; Strip whitespaces
+(defun rr-strip-whitespace ()
+ (interactive)
+ (save-excursion
+   (goto-char (point-min))
+   (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
+ (indent-region (point-min) (point-max)))
