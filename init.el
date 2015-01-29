@@ -455,3 +455,9 @@ Position the cursor at it's beginning, according to the current mode."
   (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
       (comment-or-uncomment-region (line-beginning-position) (line-end-position))
     (comment-dwim arg)))
+
+;; Highlight current line
+(global-hl-line-mode 1)
+
+;; Highligh the lines
+(hl-line-mode 1) ;; See later better
