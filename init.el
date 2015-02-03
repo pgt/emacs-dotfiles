@@ -460,7 +460,7 @@ Position the cursor at it's beginning, according to the current mode."
 (global-hl-line-mode 1)
 
 ;; Highligh the lines
-(hl-line-mode 1) ;; See later better
+(hl-highlight-mode 1) ;; See later better
 
 ;; Strip whitespaces
 (defun rr-strip-whitespace ()
