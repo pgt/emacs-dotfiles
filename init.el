@@ -499,3 +499,8 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Revert current hunk
 (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+
+
+;;; Smartscan
+(package-install 'smartscan)
+(smartscan-mode 1)
