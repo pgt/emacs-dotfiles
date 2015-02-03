@@ -111,6 +111,8 @@
 
 (global-set-key (kbd "C-o") 'kill-line) ;; kill line
 
+(global-set-key (kbd "C-c y") 'magit-status)
+
 
 ;; helm better navigation
 (define-key helm-find-files-map (kbd "<backspace>") 'helm-find-files-sensitive-backspace)
@@ -504,3 +506,11 @@ Position the cursor at it's beginning, according to the current mode."
 ;;; Smartscan
 (package-install 'smartscan)
 (smartscan-mode 1)
+
+
+;; Move between splits with arrows
+;; use Shift+arrow_keys to move cursor around split panes
+(windmove-default-keybindings)
+
+;; when cursor is on edge, move to the other side, as in a toroidal space
+(setq windmove-wrap-around t )
