@@ -462,6 +462,7 @@ Position the cursor at it's beginning, according to the current mode."
 (global-hl-line-mode 1)
 
 ;; Highligh the lines
+;; TODO: JOGAR ISSO SOMENTE PARA O HOOK DE RUBY PARA PARAR DE TER O PROBLEMA DE CONFLITO DE CORES COM O MAGIT
 (hl-highlight-mode 1) ;; See later better
 
 ;; Strip whitespaces
@@ -514,3 +515,6 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; when cursor is on edge, move to the other side, as in a toroidal space
 (setq windmove-wrap-around t )
+
+;; Set font
+(set-default-font "Source Code Pro")
