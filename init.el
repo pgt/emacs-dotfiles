@@ -518,3 +518,7 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Set font
 (set-default-font "Source Code Pro")
+
+
+;; Delete on selected text
+(delete-selection-mode 1)
