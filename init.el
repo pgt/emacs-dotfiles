@@ -402,12 +402,14 @@
 ;;; Powerline
 (add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
 (require 'powerline)
-
-
-
 (setq powerline-color1 "grey22")
 (setq powerline-color2 "grey40")
 (setq powerline-arrow-shape 'arrow)   ;; give your mode-line curves
+
+(set-face-attribute 'mode-line nil
+                    :foreground "Black"
+                    :background "DarkOrange"
+                    :box nil)
 
 ;;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -463,7 +465,7 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Highligh the lines
 ;; TODO: JOGAR ISSO SOMENTE PARA O HOOK DE RUBY PARA PARAR DE TER O PROBLEMA DE CONFLITO DE CORES COM O MAGIT
-(hl-highlight-mode 1) ;; See later better
+;; (hl-highlight-mode 1) ;; See later better
 
 ;; Strip whitespaces
 (defun rr-strip-whitespace ()
@@ -522,3 +524,6 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Delete on selected text
 (delete-selection-mode 1)
+
+;; Cursor type
+(setq default-cursor-type 'bar)
