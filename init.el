@@ -527,3 +527,10 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Cursor type
 (setq default-cursor-type 'bar)
+
+;; Undo and Redo
+(winner-mode 1)
+
+;; Google this
+(require 'google-this)
+(google-this-mode 1)
