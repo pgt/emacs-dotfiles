@@ -534,3 +534,7 @@ Position the cursor at it's beginning, according to the current mode."
 ;; Google this
 (require 'google-this)
 (google-this-mode 1)
+
+;; Undo tree
+(require 'undo-tree)
+(undo-tree-mode 1)
