@@ -557,3 +557,7 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Ruby-mode :: Dont add utf-8 coding to files
 (setq ruby-insert-encoding-magic-comment nil)
+
+;; Yasnippet
+(require 'yasnippet)
+(yas-global-mode 1)
