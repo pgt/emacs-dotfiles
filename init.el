@@ -38,6 +38,8 @@
     rspec-mode
     rhtml-mode
     rubocop
+    google-this
+    undo-tree
     restclient)
   "A list of packages to ensure are installed at launch.")
 
@@ -552,3 +554,6 @@ Position the cursor at it's beginning, according to the current mode."
     (if mark-active (list (region-beginning) (region-end))
       (list (line-beginning-position)
         (line-beginning-position 2)))))
+
+;; Ruby-mode :: Dont add utf-8 coding to files
+(setq ruby-insert-encoding-magic-comment nil)
