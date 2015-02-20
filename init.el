@@ -39,6 +39,7 @@
     rhtml-mode
     rubocop
     google-this
+    smartparens
     undo-tree
     restclient)
   "A list of packages to ensure are installed at launch.")
@@ -599,3 +600,10 @@ Position the cursor at it's beginning, according to the current mode."
   ;; put the point in the lowest line and return
   (next-line arg))
 (global-set-key (kbd "s-d") 'duplicate-line)
+
+
+;; Smartparens
+(require 'smartparens-config)
+(require 'smartparens-ruby)
+(require 'smartparens-html)
+(smartparens-mode 1)
