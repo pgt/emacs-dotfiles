@@ -727,3 +727,9 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Spelling
 (setq ispell-program-name "/usr/local/bin/aspell")
+
+;; Auto update logs like tail -f
+(add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
+
+;; Browser ring
+(global-set-key (kbd "s-V") 'helm-show-kill-ring)
