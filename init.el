@@ -32,7 +32,6 @@
     gruvbox-theme
     find-file-in-project
     popup
-    solarized-theme
     inf-ruby
     rvm
     rspec-mode
@@ -272,7 +271,7 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
-(smex-initialize)
+(smex-initialize) ;; To usando isso?
 
 (global-anzu-mode t)
 
@@ -280,7 +279,6 @@
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-q") 'comment-or-uncomment-region)
-;; (global-set-key (kbd "C-h") 'backward-delete-char)
 (global-set-key (kbd "M-d") 'kill-word)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
@@ -669,3 +667,63 @@ Position the cursor at it's beginning, according to the current mode."
 
 (provide 'init-smartparens)
 ;;; init-smartparens.el ends here
+
+
+;;; Move text over the current document
+(defun move-line-up ()
+  "Move up the current line."
+  (interactive)
+  (transpose-lines 1)
+  (forward-line -2)
+  (indent-according-to-mode))
+
+(defun move-line-down ()
+  "Move down the current line."
+  (interactive)
+  (forward-line 1)
+  (transpose-lines 1)
+  (forward-line -1)
+  (indent-according-to-mode))
+(global-set-key [(meta shift up)]  'move-line-up)
+(global-set-key [(meta shift down)]  'move-line-down)
+
+
+;; beggining of line
+(define-key global-map [remap move-beginning-of-line]
+  (defun smart-beginning-of-line ()
+    "Move point to first non-whitespace character or beginning-of-line.
+
+  Move point to the first non-whitespace character on this line.
+  If point was already at that position, move point to beginning of line."
+    (interactive)
+    (let ((oldpos (point)))
+      (back-to-indentation)
+      (and (= oldpos (point))
+           (beginning-of-line)))))
+
+
+;; Better view-mode
+(require 'view)
+(global-set-key (kbd "C-x C-q") 'view-mode)
+
+;; simpler navigation
+(define-key view-mode-map "p" 'previous-line)
+(define-key view-mode-map "n" 'next-line)
+(define-key view-mode-map "f" 'forward-char)
+(define-key view-mode-map "k" 'forward-word)
+(define-key view-mode-map "b" 'backward-char)
+(define-key view-mode-map "j" 'backward-word)
+(define-key view-mode-map "l" 'recenter-top-bottom)
+(define-key view-mode-map "e" 'move-end-of-line)
+(define-key view-mode-map "a" 'smart-beginning-of-line)
+(define-key view-mode-map "v" 'scroll-up-command)
+
+;; Yes or no
+(defalias 'yes-or-no-p 'y-or-n-p)
+(put 'narrow-to-region 'disabled nil)
+
+;; Dont exit directly
+(setq-default confirm-kill-emacs (quote y-or-n-p))
+
+;; Spelling
+(setq ispell-program-name "/usr/local/bin/aspell")
