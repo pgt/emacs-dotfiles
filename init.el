@@ -40,6 +40,7 @@
     google-this
     smartparens
     undo-tree
+    robe
     restclient)
   "A list of packages to ensure are installed at launch.")
 
@@ -799,3 +800,10 @@ Position the cursor at it's beginning, according to the current mode."
     (select-window win-curr)))
 
 (global-set-key (kbd "C-x 9") 'other-window-kill-buffer)
+
+;; Using robe-mode
+(robe-mode 1)
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook 'ac-robe-setup)
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (rvm-activate-corresponding-ruby))
