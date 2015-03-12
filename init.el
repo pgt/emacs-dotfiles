@@ -690,17 +690,17 @@ Position the cursor at it's beginning, according to the current mode."
 
 
 ;; beggining of line
-(defun smart-beginning-of-line ()
-  "Move point to first non-whitespace character or beginning-of-line.
+(define-key global-map [remap move-beginning-of-line]
+  (defun smart-beginning-of-line ()
+    "Move point to first non-whitespace character or beginning-of-line.
 
   Move point to the first non-whitespace character on this line.
   If point was already at that position, move point to beginning of line."
-  (interactive)
-  (let ((oldpos (point)))
-    (back-to-indentation)
-    (and (= oldpos (point))
-	 (beginning-of-line))))
-(global-set-key (kbd "C-m") 'smart-beginning-of-line)
+    (interactive)
+    (let ((oldpos (point)))
+      (back-to-indentation)
+      (and (= oldpos (point))
+           (beginning-of-line)))))
 
 
 ;; Better view-mode
@@ -807,3 +807,21 @@ Position the cursor at it's beginning, according to the current mode."
 (add-hook 'robe-mode-hook 'ac-robe-setup)
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
+
+;; Colapse namespaces in ruby
+(defun rr/split-module-nesting ()
+ (interactive)
+ (save-excursion
+   (when (re-search-forward "\\(class\\|module\\|describe\\).*::" nil t)
+     (backward-delete-char 2)
+     (set-mark (point))
+     (backward-sexp)
+     (kill-region (point) (mark))
+     (beginning-of-buffer)
+     (insert "module ")
+     (yank)
+     (insert "\n")
+     (end-of-buffer)
+     (insert "end\n")
+     (indent-region (point-min) (point-max)))))
+(global-set-key (kbd "C-c e") 'rr/split-module-nesting)
