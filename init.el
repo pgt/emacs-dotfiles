@@ -833,3 +833,7 @@ Position the cursor at it's beginning, according to the current mode."
 (defun projectile-helm-ag ()
   (interactive)
   (helm-ag (projectile-project-root)))
+
+;; History minibuffer navigation
+(define-key minibuffer-local-map (kbd "C-p") 'previous-complete-history-element)
+(define-key minibuffer-local-map (kbd "C-n") 'next-complete-history-element)
