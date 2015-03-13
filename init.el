@@ -106,7 +106,7 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
 (global-set-key (kbd "s-f") 'isearch-forward)
-(global-set-key (kbd "s-F") 'ag-project)
+(global-set-key (kbd "s-F") 'projectile-helm-ag) ;; OR use ag-project
 (global-set-key (kbd "s-/") 'comment-dwim-line)
 
 (global-set-key (kbd "C-j") 'backward-word) ;; navigation
@@ -825,3 +825,11 @@ Position the cursor at it's beginning, according to the current mode."
      (insert "end\n")
      (indent-region (point-min) (point-max)))))
 (global-set-key (kbd "C-c e") 'rr/split-module-nesting)
+
+;; Helm AG
+(setq helm-ag-base-command "/usr/local/bin/ag --nocolor --nogroup --ignore-case")
+(setq helm-ag-command-option "--all-text")
+(setq helm-ag-insert-at-point 'symbol)
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
