@@ -48,3 +48,6 @@ tramp
 ac-comphist.dat
 /places
 projectile-bookmarks.eld
+
+# Projectile cache
+projectile.cache
