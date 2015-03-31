@@ -419,18 +419,6 @@
 ;;; Rubocop
 (add-hook 'ruby-mode-hook 'rubocop-mode)
 
-;;; Rainbow-mode
-;; (require 'rainbow-mode)
-;; (define-globalized-minor-mode my-global-rainbow-mode rainbow-mode
-;;   (lambda () (rainbow-mode 1)))
-
-;; (my-global-rainbow-mode 1)
-
-;; Rainbow-delimiters
-;;(require 'rainbow-delimiters)
-;;(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-
 ;;; Open line above
 (defun smart-open-line-above ()
   "Insert an empty line above the current line.
