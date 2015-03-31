@@ -1,6 +1,6 @@
-;;; package ---- Summary;
-
-;;; Code
+;;; init-packages.el --- Declare, install and update Emacs packages.
+;;; Commentary:
+;;; Code:
 (require 'package)
 (package-initialize)
 
@@ -59,6 +59,7 @@
     nxml-mode
     yaml-mode))
 
+;; package loading
 (setq packaged-contents-refreshed-p nil)
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -70,8 +71,13 @@
           (setq packaged-contents-refreshed-p t)
           (package-install p))))))
 
+;; vendor loading
 (dolist (lib libs-to-require)
   (require lib))
+
+;; Automagically updating packages
+(require 'auto-package-update)
+(auto-package-update-maybe)
 
 ;;;;; Helm config
 (require 'helm-config)
@@ -135,7 +141,6 @@
    "~/code/locaweb/"))
 
 ;; helm integration for opening projects
-
 (defun helm-rr-open-project ()
   "Bring up a Project search interface in helm."
   (interactive)
