@@ -28,9 +28,7 @@
     yaml-mode ;; Help on YAML editing
     neotree ;; Like NerdTree on Vim, F8
     paredit ;; TODO
-    idle-highlight-mode
-    gruvbox-theme
-    find-file-in-project
+    gruvbox-theme ;; My theme
     popup
     inf-ruby
     rvm
@@ -51,7 +49,6 @@
     whitespace
     wrap-region
     ffap
-    find-file-in-project
     recentf
     saveplace
     ansi-color
