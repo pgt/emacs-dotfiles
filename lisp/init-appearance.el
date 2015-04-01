@@ -29,4 +29,10 @@
                     :background "DarkOrange"
                     :box nil)
 
+;; Set font
+(set-default-font "Source Code Pro")
+
+;; Cursor type
+(setq default-cursor-type 'bar)
+
 ;;; init-appearance.el ends here

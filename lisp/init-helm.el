@@ -20,4 +20,9 @@
       (helm-find-files-up-one-level 1)
     (backward-delete-char 1)))
 
+;; For find-file etc.
+(define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
+;; For helm-find-files etc.
+(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
+
 ;;; init-helm.el ends here

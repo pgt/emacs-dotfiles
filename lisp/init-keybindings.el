@@ -29,4 +29,16 @@
 
 (global-set-key (kbd "M-/") 'auto-complete)
 
+(global-set-key [(control shift return)] 'smart-open-line-above)
+
+(global-set-key (kbd "s-d") 'duplicate-line)
+
+(global-set-key (kbd "C-x 9") 'other-window-kill-buffer)
+
+(global-set-key (kbd "C-c e") 'rr/split-module-nesting)
+
+;; History minibuffer navigation
+(define-key minibuffer-local-map (kbd "C-p") 'previous-complete-history-element)
+(define-key minibuffer-local-map (kbd "C-n") 'next-complete-history-element)
+
 ;;; init-keybindings.el ends here

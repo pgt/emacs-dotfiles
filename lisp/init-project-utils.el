@@ -103,4 +103,7 @@
   (define-key map "a" 'projectile-test-project)
   (define-key map "F" 'helm-projectile-find-file-in-known-projects))
 
+;; Projectile enable caching
+(setq projectile-enable-caching t)
+
 ;;; init-project-utils.el ends here
