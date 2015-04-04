@@ -63,21 +63,21 @@
 (setq packaged-contents-refreshed-p nil)
 (dolist (p my-packages)
   (when (not (package-installed-p p))
-    (condition-case ex
-     (package-install p)
-      ('error (if packaged-contents-refreshed-p
-            (error ex)
-          (package-refresh-contents)
-          (setq packaged-contents-refreshed-p t)
-          (package-install p))))))
+   (condition-case ex
+    (package-install p)
+     ('error (if packaged-contents-refreshed-p
+           (error ex)
+         (package-refresh-contents)
+         (setq packaged-contents-refreshed-p t)
+         (package-install p))))))
 
 ;; vendor loading
 (dolist (lib libs-to-require)
   (require lib))
 
 ;; Automagically updating packages
-(require 'auto-package-update)
-(auto-package-update-maybe)
+;; (require 'auto-package-update)
+;; (auto-package-update-maybe)
 
 ;;;;; Helm config
 (require 'helm-config)
@@ -816,3 +816,9 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Projectile enable caching
 (setq projectile-enable-caching t)
+
+
+;; Dockerfile
+(add-to-list 'load-path "~/.emacs.d/vendor/")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
