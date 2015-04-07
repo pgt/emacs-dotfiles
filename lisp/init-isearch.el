@@ -3,3 +3,5 @@
 ;;; Code:
 
 ;; TODO: Anzu goes here
+
+;;; init-isearch.el ends here

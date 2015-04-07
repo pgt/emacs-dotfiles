@@ -36,9 +36,6 @@
 (package-install 'smartscan)
 (smartscan-mode 1)
 
-
-
-
 ;; Google this
 (require 'google-this)
 (google-this-mode 1)

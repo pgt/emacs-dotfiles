@@ -9,5 +9,4 @@
 ;;; Necessary when switch between branches of git
 (global-auto-revert-mode t)
 
-
 ;;; init-magit.el ends here

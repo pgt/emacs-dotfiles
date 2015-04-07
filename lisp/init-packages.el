@@ -78,3 +78,5 @@
 ;; Automagically updating packages
 (require 'auto-package-update)
 (auto-package-update-maybe)
+
+;;; init-packages.el ends here
