@@ -64,20 +64,20 @@
 (dolist (p my-packages)
   (when (not (package-installed-p p))
     (condition-case ex
-     (package-install p)
+        (package-install p)
       ('error (if packaged-contents-refreshed-p
-            (error ex)
-          (package-refresh-contents)
-          (setq packaged-contents-refreshed-p t)
-          (package-install p))))))
+                  (error ex)
+                (package-refresh-contents)
+                (setq packaged-contents-refreshed-p t)
+                (package-install p))))))
 
 ;; vendor loading
 (dolist (lib libs-to-require)
   (require lib))
 
 ;; Automagically updating packages
-(require 'auto-package-update)
-(auto-package-update-maybe)
+;; (require 'auto-package-update)
+;; (auto-package-update-maybe)
 
 ;;;;; Helm config
 (require 'helm-config)
@@ -145,7 +145,7 @@
   "Bring up a Project search interface in helm."
   (interactive)
   (helm :sources '(helm-source-list-projects)
-     :buffer "*helm-list-projects*"))
+        :buffer "*helm-list-projects*"))
 
 (defvar helm-source-list-projects
   '((name . "Open Project")
@@ -157,29 +157,29 @@
 (defun rr-list-projects ()
   "Lists all projects given project sources."
   (cl-labels ((dir-to-files (dir)
-                   (if (file-exists-p dir)
-                    (directory-files dir t directory-files-no-dot-files-regexp)))
-           (flatten (x)
-                 (cond ((null x) nil)
-                    ((listp x) (append (car x) (flatten (cdr x)))))))
+                            (if (file-exists-p dir)
+                                (directory-files dir t directory-files-no-dot-files-regexp)))
+              (flatten (x)
+                       (cond ((null x) nil)
+                             ((listp x) (append (car x) (flatten (cdr x)))))))
     (progn (flatten (mapcar #'dir-to-files  project-sources)))))
 
 (defun rr-open-project (actions path)
   "Do nothing with ACTIONS. Open project given PATH."
   ;; TODO: Add default file get.
   (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path))
-                          (expand-file-name "Gemfile" path)
-                        path)))
+                                      (expand-file-name "Gemfile" path)
+                                    path)))
     (find-file (find-default-file))))
 
 ;; Creating new project
 (defun rr-new-git-project ()
   (interactive)
   (let* ((source (ido-completing-read "create new project in which source?: " project-sources))
-      (project-name (read-input "new project name: "))
-      (project-dir (file-name-as-directory (expand-file-name project-name source))))
+         (project-name (read-input "new project name: "))
+         (project-dir (file-name-as-directory (expand-file-name project-name source))))
     (condition-case nil
-     (mkdir project-dir)
+        (mkdir project-dir)
       (error nil))
 
     (shell-command (format "cd %s; git init" project-dir))
@@ -187,22 +187,22 @@
 
 (defun rr-add-gitignore-file (repo-path)
   (interactive (list
-          (read-directory-name
-           "Which repository?: "
-           (if (projectile-project-root)
-               (projectile-project-root)
-             (file-name-directory (buffer-file-name))))))
+                (read-directory-name
+                 "Which repository?: "
+                 (if (projectile-project-root)
+                     (projectile-project-root)
+                   (file-name-directory (buffer-file-name))))))
   (let* ((gitignore-dir (expand-file-name "gitignore/" default-project-source))
-      (gitignore-files (directory-files
-                  gitignore-dir
-                  nil
-                  directory-files-no-dot-files-regexp))
-      (gitignore-file (ido-completing-read "choose gitignore file: " gitignore-files)))
+         (gitignore-files (directory-files
+                           gitignore-dir
+                           nil
+                           directory-files-no-dot-files-regexp))
+         (gitignore-file (ido-completing-read "choose gitignore file: " gitignore-files)))
     (if gitignore-file
-     (copy-file
-      (expand-file-name gitignore-file gitignore-dir)
-      (expand-file-name ".gitignore" repo-path)
-      t))))
+        (copy-file
+         (expand-file-name gitignore-file gitignore-dir)
+         (expand-file-name ".gitignore" repo-path)
+         t))))
 
 ;; ===============
 ;; -- ag config --
@@ -318,7 +318,7 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-	    (rvm-activate-corresponding-ruby)
+            (rvm-activate-corresponding-ruby)
             (make-local-variable 'ac-ignores)
             ;; ruby keywords
             (add-to-list 'ac-ignores "do")
@@ -399,9 +399,9 @@
 
 ;;; Change winddow with C-tab
 (global-set-key [C-tab]
-    (lambda ()
-      (interactive)
-      (other-window -1)))
+                (lambda ()
+                  (interactive)
+                  (other-window -1)))
 
 ;;; Powerline
 (add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
@@ -461,11 +461,11 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Strip whitespaces
 (defun rr-strip-whitespace ()
- (interactive)
- (save-excursion
-   (goto-char (point-min))
-   (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
- (indent-region (point-min) (point-max)))
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
+  (indent-region (point-min) (point-max)))
 
 ;; For find-file etc.
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
@@ -793,20 +793,20 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Colapse namespaces in ruby
 (defun rr/split-module-nesting ()
- (interactive)
- (save-excursion
-   (when (re-search-forward "\\(class\\|module\\|describe\\).*::" nil t)
-     (backward-delete-char 2)
-     (set-mark (point))
-     (backward-sexp)
-     (kill-region (point) (mark))
-     (beginning-of-buffer)
-     (insert "module ")
-     (yank)
-     (insert "\n")
-     (end-of-buffer)
-     (insert "end\n")
-     (indent-region (point-min) (point-max)))))
+  (interactive)
+  (save-excursion
+    (when (re-search-forward "\\(class\\|module\\|describe\\).*::" nil t)
+      (backward-delete-char 2)
+      (set-mark (point))
+      (backward-sexp)
+      (kill-region (point) (mark))
+      (beginning-of-buffer)
+      (insert "module ")
+      (yank)
+      (insert "\n")
+      (end-of-buffer)
+      (insert "end\n")
+      (indent-region (point-min) (point-max)))))
 (global-set-key (kbd "C-c e") 'rr/split-module-nesting)
 
 ;; History minibuffer navigation
@@ -816,3 +816,34 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Projectile enable caching
 (setq projectile-enable-caching t)
+
+;; vcr toggle
+(defun custom/vcr-toggle ()
+  (interactive)
+  (if (getenv "VCR_OFF")
+      (progn
+        (setenv "VCR_OFF" nil)
+        (message "VCR is ON"))
+    (progn
+      (setenv "VCR_OFF" "true")
+      (message "VCR is OFF"))))
+
+;; Indent all buffer
+(defun indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (indent-buffer)
+        (message "Indented buffer.")))))
+
+(global-set-key (kbd "C-c i") 'indent-region-or-buffer)
