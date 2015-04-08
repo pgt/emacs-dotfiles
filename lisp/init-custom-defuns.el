@@ -33,7 +33,7 @@
      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 ;; (put 'dired-find-alternate-file 'disabled nil)
 
-;;; Change winddow with C-tab
+;;; Change window with C-tab
 (global-set-key [C-tab]
     (lambda ()
       (interactive)
