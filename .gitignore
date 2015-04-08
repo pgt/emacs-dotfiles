@@ -54,3 +54,12 @@ projectile.cache
 
 # Update of packages
 .last-package-update-day
+
+# TODO's
+todo/
+
+# Image dired
+image-dired/
+
+# Flycheck backup
+flycheck_init-backup.el

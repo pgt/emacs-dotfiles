@@ -8,8 +8,7 @@
 ;;;;;;; Save ~ file in a different place
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
-
-;;; TODO: I dont remember this
+ ;;; Initializing in ~/code
 (custom-set-variables
  '(ansi-color-names-vector
    ["#3c3836" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
@@ -65,8 +64,9 @@
 
 (smex-initialize) ;; To usando isso?
 
-
-;; Expand region
+;; ==========================
+;; -- Expand-region config --
+;; ==========================
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -112,7 +112,9 @@
 ;; Spelling
 (setq ispell-program-name "/usr/local/bin/aspell")
 
-;; Multiple cursors
+;; =============================
+;; -- Multiple-cursors config --
+;; =============================
 (eval-after-load "multiple-cursors-autoloads"
   '(progn
      (when (require 'multiple-cursors nil t)

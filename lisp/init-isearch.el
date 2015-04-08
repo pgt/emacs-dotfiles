@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; TODO: Anzu goes here
+(global-anzu-modes t)
 
 (provide 'init-isearch)
 ;;; init-isearch.el ends here

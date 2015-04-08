@@ -275,7 +275,7 @@
 
 (smex-initialize) ;; To usando isso?
 
-(global-anzu-mode t)
+(global-anzu-modes t)
 
 ;;;;;; keybindings
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
