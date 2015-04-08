@@ -176,4 +176,34 @@ Position the cursor at it's beginning, according to the current mode."
      (insert "end\n")
      (indent-region (point-min) (point-max)))))
 
+;; vcr toggle
+(defun custom/vcr-toggle ()
+  (interactive)
+  (if (getenv "VCR_OFF")
+      (progn
+        (setenv "VCR_OFF" nil)
+        (message "VCR is ON"))
+    (progn
+      (setenv "VCR_OFF" "true")
+      (message "VCR is OFF"))))
+
+;; Indent all buffer
+(defun indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (indent-buffer)
+        (message "Indented buffer.")))))
+
+(provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here

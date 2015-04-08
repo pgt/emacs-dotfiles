@@ -25,4 +25,5 @@
 ;; For helm-find-files etc.
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
+(provide 'init-helm)
 ;;; init-helm.el ends here

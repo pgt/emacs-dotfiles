@@ -2,4 +2,5 @@
 ;;; Commentary:
 ;;; Code:
 
+(provide 'init-window-management)
 ;;; init-window-management.el ends here

@@ -41,4 +41,7 @@
 (define-key minibuffer-local-map (kbd "C-p") 'previous-complete-history-element)
 (define-key minibuffer-local-map (kbd "C-n") 'next-complete-history-element)
 
+(global-set-key (kbd "C-c i") 'indent-region-or-buffer)
+
+(provide 'init-keybindings)
 ;;; init-keybindings.el ends here

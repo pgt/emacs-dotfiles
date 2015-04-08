@@ -36,6 +36,8 @@
     rhtml-mode
     rubocop
     google-this
+    bundler
+    auto-package-update
     smartparens
     undo-tree
     restclient)
@@ -79,4 +81,5 @@
 (require 'auto-package-update)
 (auto-package-update-maybe)
 
+(provide `init-packages)
 ;;; init-packages.el ends here

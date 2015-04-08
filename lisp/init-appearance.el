@@ -32,4 +32,5 @@
 ;; Cursor type
 (setq default-cursor-type 'bar)
 
+(provide 'init-appearance)
 ;;; init-appearance.el ends here
