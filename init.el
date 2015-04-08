@@ -38,6 +38,7 @@
     google-this
     smartparens
     undo-tree
+    bundler
     restclient)
   "A list of packages to ensure are installed at launch.")
 
