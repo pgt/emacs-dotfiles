@@ -64,7 +64,9 @@
 
 (smex-initialize) ;; To usando isso?
 
+;; Anzu
 (global-anzu-mode t)
+
 ;; ==========================
 ;; -- Expand-region config --
 ;; ==========================
