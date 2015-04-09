@@ -1,4 +1,4 @@
-;;; init-yas.el -- Configures `yasnippet-mode' preferences.
+;;; init-yasnippet.el -- Configures `yasnippet-mode' preferences.
 ;;; Commentary:
 ;;; Code:
 
@@ -6,4 +6,5 @@
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;;; init-yas.el ends here
+(provide 'init-yasnippet)
+;;; init-yasnippet.el ends here

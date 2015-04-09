@@ -106,4 +106,5 @@
 ;; Projectile enable caching
 (setq projectile-enable-caching t)
 
+(provide 'init-project-utils)
 ;;; init-project-utils.el ends here

@@ -52,4 +52,5 @@
 ;; Ruby-mode :: Dont add utf-8 coding to files
 (setq ruby-insert-encoding-magic-comment nil)
 
+(provide 'init-ruby)
 ;;; init-ruby.el ends here

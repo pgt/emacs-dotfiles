@@ -1,5 +1,6 @@
-;;; init-appearance.el -- Configures global keybindings and other keybinding-related stuff.
+;;; init-window-management.el -- Configures global keybindings and other keybinding-related stuff.
 ;;; Commentary:
 ;;; Code:
 
-;;; init-appearance.el ends here
+(provide 'init-window-management)
+;;; init-window-management.el ends here
