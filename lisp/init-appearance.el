@@ -39,7 +39,7 @@
 ;; Cursor type
 (setq default-cursor-type 'bar)
 
-;; Put trasnparency in other buffer not used
+;; Put trasnparency in other frame not used
 (set-frame-parameter (selected-frame) 'alpha '(100 65))
 (add-to-list 'default-frame-alist '(alpha 100 65))
 
