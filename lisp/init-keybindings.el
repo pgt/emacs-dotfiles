@@ -54,5 +54,8 @@
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-3") 'split-window-horizontally)
 
+;; Dired open Wdired
+(define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
