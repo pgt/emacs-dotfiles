@@ -36,6 +36,7 @@
     rhtml-mode
     rubocop
     google-this
+    diminish
     bundler
     auto-package-update
     smartparens

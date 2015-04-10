@@ -64,7 +64,9 @@
 
 (smex-initialize) ;; To usando isso?
 
+;; Anzu
 (global-anzu-mode t)
+
 ;; ==========================
 ;; -- Expand-region config --
 ;; ==========================
@@ -166,6 +168,9 @@
        (global-set-key (kbd "M-@") 'mc/mark-all-dispatch)
        (global-set-key (kbd "M-#") 'mc/insert-numbers)
        (global-set-key (kbd "M-'") 'mc/align))))
+
+;; Reuse buffers between frames
+(setq-default display-buffer-reuse-frames t)
 
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

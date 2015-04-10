@@ -17,6 +17,7 @@
 
 (setq-default rspec-use-rvm t)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+(setq rspec-use-rake-when-possible nil)
 
 ;;;;;;;;; autocomplete
 (require 'auto-complete-config)
