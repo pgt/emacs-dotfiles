@@ -10,7 +10,7 @@
 (load-theme 'gruvbox t)
 
 ;;; Powerline
-(add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline")
+(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
 (require 'powerline)
 (setq projectile-mode-line
       '(:eval (format " [%s]" (projectile-project-name))))
