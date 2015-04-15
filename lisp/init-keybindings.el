@@ -51,14 +51,14 @@
       (interactive)
       (other-window -1)))
 (global-set-key (kbd "M-i") 'other-frame)
-(global-set-key (kbd "M-0") 'delete-window) ;; better short
-(global-set-key (kbd "M-1") 'delete-other-windows) ;; better short
-(global-set-key (kbd "M-2") 'split-window-vertically) ;; better short
-(global-set-key (kbd "M-3") 'split-window-horizontally) ;; better short
-(global-set-key (kbd "C-x 2") 'vsplit-last-buffer) ;; better short
-(global-set-key (kbd "C-x 3") 'hsplit-last-buffer) ;; better short
-(global-set-key (kbd "C-c -") 'swap-buffers-in-windows) ;; better short
-(global-set-key (kbd "C-x 9") 'other-window-kill-buffer) ;; better short
+(global-set-key (kbd "s-K") 'delete-window)
+(global-set-key (kbd "s-O") 'delete-other-windows)
+(global-set-key (kbd "M-2") 'split-window-vertically)
+(global-set-key (kbd "M-3") 'split-window-horizontally)
+(global-set-key (kbd "s-U") 'vsplit-last-buffer)
+(global-set-key (kbd "s-P") 'hsplit-last-buffer)
+(global-set-key (kbd "s-I") 'swap-buffers-in-windows)
+(global-set-key (kbd "C-x 9") 'other-window-kill-buffer)
 
 ;; Dired open Wdired
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
