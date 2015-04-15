@@ -9,5 +9,7 @@
 ;;; Necessary when switch between branches of git
 (global-auto-revert-mode t)
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 (provide 'init-magit)
 ;;; init-magit.el ends here

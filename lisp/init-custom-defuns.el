@@ -33,12 +33,6 @@
      (define-key ruby-mode-map (kbd "#") 'senny-ruby-interpolate)))
 ;; (put 'dired-find-alternate-file 'disabled nil)
 
-;;; Change window with C-tab
-(global-set-key [C-tab]
-    (lambda ()
-      (interactive)
-      (other-window -1)))
-
 ;;; Open line above
 (defun smart-open-line-above ()
   "Insert an empty line above the current line.
@@ -204,6 +198,61 @@ Position the cursor at it's beginning, according to the current mode."
       (progn
         (indent-buffer)
         (message "Indented buffer.")))))
+
+;; Not push to kill-ring the killed words
+(defun kill-word (arg)
+  ;; -- This monkeypatch fixes the behavior of kill word --
+  ;; now, it will not push to the kill-ring the killed words.
+  (interactive "p")
+  (delete-region (point) (progn (forward-word arg) (point))))
+
+;; -- window management --
+(defun vsplit-last-buffer ()
+  "Vertically split window showing last buffer."
+  (interactive)
+  (split-window-vertically)
+  (other-window 1 nil)
+  (switch-to-next-buffer))
+
+(defun hsplit-last-buffer ()
+  "Horizontally split window showing last buffer."
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1 nil)
+  (switch-to-next-buffer))
+
+(defun swap-buffers-in-windows ()
+  "Put the buffer from the selected window in next window, and vice versa."
+  (interactive)
+  (let* ((this (selected-window))
+	 (other (next-window))
+	 (this-buffer (window-buffer this))
+	 (other-buffer (window-buffer other)))
+    (set-window-buffer other this-buffer)
+    (set-window-buffer this other-buffer)))
+
+(defun insert-lorem ()
+  "Insert a lorem ipsum."
+  (interactive)
+  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
+	  "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+	  "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
+	  "aliquip ex ea commodo consequat. Duis aute irure dolor in "
+	  "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
+	  "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
+	  "culpa qui officia deserunt mollit anim id est laborum."))
+
+(defun sudo-edit (&optional arg)
+  "Edit file as sudo. ARG as point."
+  (interactive "p")
+  (find-file (concat "/sudo:root@localhost:" (helm-read-file-name "File: "))))
+
+(defun rr/show-file-name ()
+  "Show the full path filename in the minibuffer."
+  (interactive)
+  (let ((text (format "%s:%i" (buffer-file-name) (line-number-at-pos))))
+    (message text)
+    (kill-new text)))
 
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here

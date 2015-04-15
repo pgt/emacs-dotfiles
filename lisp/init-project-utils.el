@@ -1,7 +1,6 @@
 ;;; init-project-utils.el -- Personal configuration and enhancements to project management.
 ;;; Commentary:
 ;;; Code:
-
 (require 'helm-projectile)
 
 (projectile-global-mode 1)
