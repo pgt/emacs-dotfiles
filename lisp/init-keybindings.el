@@ -47,9 +47,9 @@
 
 ;;; Change window with C-tab
 (global-set-key [C-tab]
-    (lambda ()
-      (interactive)
-      (other-window -1)))
+		(lambda ()
+		  (interactive)
+		  (other-window -1)))
 (global-set-key (kbd "M-i") 'other-frame)
 (global-set-key (kbd "s-K") 'delete-window)
 (global-set-key (kbd "s-O") 'delete-other-windows)
@@ -59,15 +59,25 @@
 (global-set-key (kbd "s-P") 'hsplit-last-buffer)
 (global-set-key (kbd "s-I") 'swap-buffers-in-windows)
 (global-set-key (kbd "C-x 9") 'other-window-kill-buffer)
+(global-set-key [s-shift-left] 'windmove-left) ;; will not work
+(global-set-key [s-shift-right] 'windmove-right) ;; will not work
+(global-set-key [s-shift-up] 'windmove-up)
+(global-set-key [s-shift-down] 'windmove-down)
 
 ;; Find in project
 (global-set-key (kbd "s-F") 'ag-project)
+
+;; Smart kill-whole-line
+(global-set-key [remap kill-whole-line] 'smart-kill-whole-line)
 
 ;; Dired open Wdired
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
 
 ;; Open buffer of this project
 (global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer)
+
+;; Open project
+(global-set-key (kbd "s-o") 'helm-rr-open-project)
 
 ;; Eval-buffer
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
