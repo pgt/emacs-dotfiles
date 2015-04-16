@@ -254,5 +254,11 @@ Position the cursor at it's beginning, according to the current mode."
     (message text)
     (kill-new text)))
 
+(defun smart-kill-whole-line (&optional arg)
+  "A simple wrapper around `kill-whole-line' that respects indentation."
+  (interactive "P")
+  (kill-whole-line arg)
+  (back-to-indentation))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
