@@ -64,8 +64,5 @@
 (sp-with-modes '(ruby-mode)
   (sp-local-pair "|" "|"))
 
-(sp-with-modes '(html-mode sgml-mode)
-  (sp-local-pair "<" ">"))
-
 (provide 'init-smartparens)
 ;;; init-smartparens.el ends here

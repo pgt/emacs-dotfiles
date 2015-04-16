@@ -60,6 +60,9 @@
 (global-set-key (kbd "s-I") 'swap-buffers-in-windows)
 (global-set-key (kbd "C-x 9") 'other-window-kill-buffer)
 
+;; Find in project
+(global-set-key (kbd "s-F") 'ag-project)
+
 ;; Dired open Wdired
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
 
