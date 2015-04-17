@@ -18,6 +18,7 @@
     ag ;; Search
     smartscan ;; Move between symbols (* of vim)
     helm ;; Help in navigation
+    helm-ag ;; Help-ag search
     smex ;; Better interface for M-x
     projectile ;; Project interaction
     helm-projectile ;; Navigation for Projectile

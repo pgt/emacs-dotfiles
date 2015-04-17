@@ -196,5 +196,13 @@
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
+;; Helm AG
+(setq helm-ag-base-command "/usr/local/bin/ag --nocolor --nogroup --ignore-case")
+(setq helm-ag-command-option "--all-text")
+(setq helm-ag-insert-at-point 'symbol)
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
