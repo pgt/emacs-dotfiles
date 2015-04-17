@@ -15,6 +15,7 @@
 (require 'init-smartparens)
 (require 'init-isearch)
 (require 'init-yasnippet)
+(require 'init-dired)
 
 (require 'init-appearance)
 (require 'init-window-management)
