@@ -40,8 +40,8 @@
 (setq default-cursor-type 'bar)
 
 ;; Put trasnparency in other frame not used
-(set-frame-parameter (selected-frame) 'alpha '(100 65))
-(add-to-list 'default-frame-alist '(alpha 100 65))
+(set-frame-parameter (selected-frame) 'alpha '(100 80))
+(add-to-list 'default-frame-alist '(alpha 100 80))
 
 (provide 'init-appearance)
 ;;; init-appearance.el ends here
