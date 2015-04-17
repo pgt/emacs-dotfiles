@@ -16,6 +16,7 @@
 (require 'init-isearch)
 (require 'init-yasnippet)
 (require 'init-dired)
+(require 'init-javascript)
 
 (require 'init-appearance)
 (require 'init-window-management)

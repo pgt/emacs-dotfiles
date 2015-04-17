@@ -42,6 +42,7 @@
     auto-package-update
     smartparens
     undo-tree
+    js2-mode
     restclient)
   "A list of packages to ensure are installed at launch.")
 
