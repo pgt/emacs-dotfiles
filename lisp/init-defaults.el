@@ -8,7 +8,7 @@
 ;;;;;;; Save ~ file in a different place
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
- ;;; Initializing in ~/code
+;;; Initializing in ~/code
 (custom-set-variables
  '(ansi-color-names-vector
    ["#3c3836" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
@@ -16,7 +16,7 @@
  '(custom-safe-themes
    (quote
     ("75d807376ac43e6ac6ae3892f1f377a4a3ad2eb70b14223b4ed0355e62116814" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a655f17225ad0a7190c79602593563191b7640ddebbb8c8fbd80c9d82faff1c6" "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" default)))
- '(initial-buffer-choice "~/code"))
+ '(initial-buffer-choice t))
 
 ;; create the autosave dir if necessary, since emacs won't.
 (make-directory "~/.emacs.d/autosaves/" t)
