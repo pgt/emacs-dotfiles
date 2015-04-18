@@ -53,25 +53,25 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Strip whitespaces
 (defun rr-strip-whitespace ()
- (interactive)
- (save-excursion
-   (goto-char (point-min))
-   (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
- (indent-region (point-min) (point-max)))
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
+  (indent-region (point-min) (point-max)))
 
 ;; Copying without select the line
 (defadvice kill-ring-save (before slick-copy activate compile) "When called
   interactively with no active region, copy a single line instead."
-  (interactive (if mark-active (list (region-beginning) (region-end)) (message
-  "Copied line") (list (line-beginning-position) (line-beginning-position
-  2)))))
+	   (interactive (if mark-active (list (region-beginning) (region-end)) (message
+										"Copied line") (list (line-beginning-position) (line-beginning-position
+																2)))))
 
 (defadvice kill-region (before slick-cut activate compile)
   "When called interactively with no active region, kill a single line instead."
   (interactive
-    (if mark-active (list (region-beginning) (region-end))
-      (list (line-beginning-position)
-        (line-beginning-position 2)))))
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+	   (line-beginning-position 2)))))
 
 ;; Duplicate lines
 (defun duplicate-line (arg)
@@ -155,20 +155,20 @@ Position the cursor at it's beginning, according to the current mode."
 
 ;; Colapse namespaces in ruby
 (defun rr/split-module-nesting ()
- (interactive)
- (save-excursion
-   (when (re-search-forward "\\(class\\|module\\|describe\\).*::" nil t)
-     (backward-delete-char 2)
-     (set-mark (point))
-     (backward-sexp)
-     (kill-region (point) (mark))
-     (beginning-of-buffer)
-     (insert "module ")
-     (yank)
-     (insert "\n")
-     (end-of-buffer)
-     (insert "end\n")
-     (indent-region (point-min) (point-max)))))
+  (interactive)
+  (save-excursion
+    (when (re-search-forward "\\(class\\|module\\|describe\\).*::" nil t)
+      (backward-delete-char 2)
+      (set-mark (point))
+      (backward-sexp)
+      (kill-region (point) (mark))
+      (beginning-of-buffer)
+      (insert "module ")
+      (yank)
+      (insert "\n")
+      (end-of-buffer)
+      (insert "end\n")
+      (indent-region (point-min) (point-max)))))
 
 ;; vcr toggle
 (defun custom/vcr-toggle ()
@@ -259,6 +259,12 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive "P")
   (kill-whole-line arg)
   (back-to-indentation))
+
+;; Set transparency of emacs
+(defun transparency (value)
+  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  (interactive "nTransparency Value 0 - 100 opaque:")
+  (set-frame-parameter (selected-frame) 'alpha value))
 
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
