@@ -30,6 +30,9 @@
 ;; Undo and Redo
 (winner-mode 1)
 
+;; HideShow comments mode
+(hs-minor-mode 1)
+
 ;; when cursor is on edge, move to the other side, as in a toroidal space
 (setq windmove-wrap-around t )
 
