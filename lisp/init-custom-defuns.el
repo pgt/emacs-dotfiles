@@ -266,5 +266,27 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))
 
+(defun custom/class-from-file-name (file-name)
+  "Guess the name of the class given a filename."
+  (let* ((name (file-relative-name file-name (projectile-project-root)))
+         (class (capitalize name))
+         (rules '(("\\.rb"        . "")
+                  ("app\\/.+?\\/" . "")
+                  ("lib\\/"       . "")
+                  ("/"            . "::")
+                  ("_"            . ""))))
+    (dolist (rule rules)
+      (setq class (replace-regexp-in-string (car rule) (cdr rule) class nil t)))
+    class))
+
+(defun custom/run-mutant-from-dired ()
+  "Run mutant over all marked files."
+  (interactive)
+  (let* ((file-names (dired-get-marked-files))
+         (class-names (mapcar 'custom/class-from-file-name file-names))
+         (joined-classes (mapconcat 'identity class-names " "))
+	 (joined-names (mapconcat 'identity file-names " ")))
+    (compile (concat "bundle exec mutant -r " joined-names " --use rspec -j 1 " joined-classes))))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
