@@ -204,5 +204,16 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
+;;; Guide-key configurations
+(require 'guide-key)
+(setq guide-key/guide-key-sequence 't)
+(guide-key-mode 1)  ; Enable guide-key-mode
+(setq guide-key/highlight-command-regexp "rectangle")
+(setq guide-key/highlight-command-regexp
+      '("rectangle"
+        ("register" . font-lock-type-face)
+        ("bookmark" . "hot pink")))
+(setq guide-key/idle-delay 0.1)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

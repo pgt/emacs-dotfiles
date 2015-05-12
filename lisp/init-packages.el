@@ -43,6 +43,7 @@
     smartparens
     undo-tree
     js2-mode
+    guide-key
     restclient)
   "A list of packages to ensure are installed at launch.")
 
