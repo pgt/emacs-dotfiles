@@ -85,5 +85,8 @@
 ;; Eval-buffer
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)
 
+;; Close all buffers
+(global-set-key (kbd "C-*") 'close-all-buffers)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

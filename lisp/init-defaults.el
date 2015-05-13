@@ -215,5 +215,8 @@
         ("bookmark" . "hot pink")))
 (setq guide-key/idle-delay 0.1)
 
+(add-to-list 'load-path "~/.emacs.d/vendor/mutant")
+(require 'mutant)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
