@@ -213,7 +213,7 @@
       '("rectangle"
         ("register" . font-lock-type-face)
         ("bookmark" . "hot pink")))
-(setq guide-key/idle-delay 0.1)
+(setq guide-key/idle-delay 0.8)
 
 (add-to-list 'load-path "~/.emacs.d/vendor/mutant")
 (require 'mutant)
