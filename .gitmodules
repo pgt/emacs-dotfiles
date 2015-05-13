@@ -1,0 +1,3 @@
+[submodule "vendor/mutant.el"]
+	path = vendor/mutant.el
+	url = git://github.com/p-lambert/mutant.el.git

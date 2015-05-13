@@ -26,5 +26,8 @@
 ;;; Show Kbytes on dired
 (setq dired-listing-switches "-alh")
 
+;;; Mutant
+(add-hook 'dired-mode-hook 'mutant-dired-mode)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here

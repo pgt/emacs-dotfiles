@@ -288,5 +288,10 @@ Position the cursor at it's beginning, according to the current mode."
 	 (joined-names (mapconcat 'identity file-names " ")))
     (compile (concat "bundle exec mutant -r " joined-names " --use rspec -j 1 " joined-classes))))
 
+(defun close-all-buffers ()
+  "Close all buffers!"
+  (interactive)
+  (mapc 'kill-buffer (buffer-list)))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
