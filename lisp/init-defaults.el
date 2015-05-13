@@ -215,6 +215,7 @@
         ("bookmark" . "hot pink")))
 (setq guide-key/idle-delay 0.8)
 
+;;; Mutant
 (add-to-list 'load-path "~/.emacs.d/vendor/mutant")
 (require 'mutant)
 
