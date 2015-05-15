@@ -219,5 +219,12 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/mutant")
 (require 'mutant)
 
+;;; Scroll settings
+;; scroll one line at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
