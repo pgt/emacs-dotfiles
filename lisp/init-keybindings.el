@@ -91,5 +91,12 @@
 ;;; Recent files
 (global-set-key (kbd "C-x C-r") 'helm-projectile-recentf)
 
+;;; Ruby Refactor
+(global-set-key (kbd "C-c C-t v") 'ruby-refactor-extract-local-variable)
+(global-set-key (kbd "C-c C-t l") 'ruby-refactor-extract-to-let)
+(global-set-key (kbd "C-c C-t m") 'ruby-refactor-extract-to-method)
+(global-set-key (kbd "C-c C-t p") 'ruby-refactor-add-parameter)
+(global-set-key (kbd "C-c C-t c") 'ruby-refactor-extract-constant)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
