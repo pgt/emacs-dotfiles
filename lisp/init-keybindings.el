@@ -98,5 +98,9 @@
 (global-set-key (kbd "C-c C-t p") 'ruby-refactor-add-parameter)
 (global-set-key (kbd "C-c C-t c") 'ruby-refactor-extract-constant)
 
+;;; Find and replace with anzu
+(global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+(global-set-key [remap query-replace] 'anzu-query-replace)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
