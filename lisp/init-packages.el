@@ -9,42 +9,60 @@
 
 (defvar my-packages
   '(
-    magit
-    git-timemachine ;; Travel for versions of a file on git
-    flycheck ;; Syntax checking for over 60 programming languages
-    ido-vertical-mode ;; Easy navigation on commands
-    fuzzy ;; Completion
+    ;;; General
+    auto-package-update
     s ;; TODO: need search
-    ag ;; Search
+    flycheck ;; Syntax checking for over 60 programming languages
     smartscan ;; Move between symbols (* of vim)
     helm ;; Help in navigation
-    helm-ag ;; Help-ag search
-    smex ;; Better interface for M-x
     projectile ;; Project interaction
     helm-projectile ;; Navigation for Projectile
-    smooth-scrolling ;; Scroll
-    auto-complete ;; Auto-complete
-    anzu ;; Better search mode of file with syntax highlight
-    wrap-region ;; Highlight the selected region
-    yaml-mode ;; Help on YAML editing
     neotree ;; Like NerdTree on Vim, F8
-    paredit ;; TODO
-    gruvbox-theme ;; My theme
-    popup
-    inf-ruby
-    rvm
-    rspec-mode
-    rhtml-mode
-    rubocop
     google-this
     diminish
-    bundler
-    auto-package-update
-    smartparens
+    paredit ;; TODO
     undo-tree
-    js2-mode
     guide-key
-    restclient)
+    restclient
+
+    ;;; Ruby
+    rvm
+    inf-ruby
+    rubocop
+    rspec-mode
+    bundler
+    smartparens
+
+    ;;; Search
+    ag
+    anzu ;; Better search mode of file with syntax highlight
+
+    ido-vertical-mode ;; Easy navigation on commands
+    fuzzy ;; Completion
+    helm-ag ;; Help-ag search
+    smex ;; Better interface for M-x
+    auto-complete ;; Auto-complete
+    wrap-region ;; Highlight the selected region
+
+    ;;; YAML
+    yaml-mode ;; Help on YAML editing
+
+    ;;; UI
+    popup
+    gruvbox-theme ;; My theme
+
+    ;;; HTML
+    rhtml-mode
+
+    ;;; Javascript
+    js2-mode
+
+    ;;; Git tools
+    magit
+    git-timemachine ;; Travel for versions of a file on git
+
+    ;;; my-package ends here
+    )
   "A list of packages to ensure are installed at launch.")
 
 (defvar libs-to-require
