@@ -231,5 +231,10 @@
 (recentf-mode t)
 (setq recentf-max-saved-items 50)
 
+;;; When you visit a file, point goes to the last place where it was
+;;; when you previously visited the same file.
+(require 'saveplace)
+(setq-default save-place t)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
