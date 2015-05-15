@@ -18,6 +18,10 @@
 
 (global-set-key (kbd "C-o") 'kill-line) ;; kill line
 
+;;; movement and editing
+(global-set-key [remap kill-word] 'rr/kill-word)
+(global-set-key [remap backward-kill-word] 'rr/backward-kill-word)
+
 ;; Magit
 (global-set-key (kbd "C-c y") 'magit-status)
 

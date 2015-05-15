@@ -293,5 +293,13 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
+(defun rr/kill-word (arg)
+  (interactive "p")
+  (delete-region (point) (progn (forward-word arg) (point))))
+
+(defun rr/backward-kill-word (arg)
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
