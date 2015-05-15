@@ -77,5 +77,9 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
+;;; Ruby Refactor
+(require 'ruby-refactor)
+(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here

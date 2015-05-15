@@ -32,6 +32,7 @@
     rspec-mode
     bundler
     smartparens
+    ruby-refactor
 
     ;;; Search
     ag
