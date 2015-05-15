@@ -88,5 +88,8 @@
 ;; Close all buffers
 (global-set-key (kbd "C-*") 'close-all-buffers)
 
+;;; Recent files
+(global-set-key (kbd "C-c C-r") 'helm-projectile-recentf)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

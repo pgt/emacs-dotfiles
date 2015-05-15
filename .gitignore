@@ -64,3 +64,4 @@ image-dired/
 # Flycheck backup
 flycheck_init-backup.el
 flycheck_init.el
+/recentf

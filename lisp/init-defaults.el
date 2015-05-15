@@ -226,5 +226,10 @@
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 1) ;; keyboard scroll one line at a time
 
+;;; Recent files
+(require 'recentf)
+(recentf-mode t)
+(setq recentf-max-saved-items 50)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
