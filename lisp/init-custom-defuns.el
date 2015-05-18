@@ -247,7 +247,7 @@ Position the cursor at it's beginning, according to the current mode."
   (interactive "p")
   (find-file (concat "/sudo:root@localhost:" (helm-read-file-name "File: "))))
 
-(defun rr/show-file-name ()
+(defun rr-show-file-name ()
   "Show the full path filename in the minibuffer."
   (interactive)
   (let ((text (format "%s:%i" (buffer-file-name) (line-number-at-pos))))
