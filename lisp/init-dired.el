@@ -29,5 +29,8 @@
 ;;; Mutant
 (add-hook 'dired-mode-hook 'mutant-dired-mode)
 
+;;; Open dired with `a' key
+(put 'dired-find-alternate-file 'disabled nil)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here
