@@ -48,5 +48,14 @@
 (set-frame-parameter (selected-frame) 'alpha '(100 80))
 (add-to-list 'default-frame-alist '(alpha 100 80))
 
+;; special font option
+(defun custom/use-smaller-font ()
+  "Make font smaller for current buffer."
+  (interactive)
+  (setq buffer-face-mode-face '(:family "Inconsolata" :height 120))
+  (buffer-face-mode))
+
+(add-hook 'compilation-mode-hook 'custom/use-smaller-font)
+
 (provide 'init-appearance)
 ;;; init-appearance.el ends here
