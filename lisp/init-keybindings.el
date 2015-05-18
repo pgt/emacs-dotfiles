@@ -106,5 +106,8 @@
 (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
 (global-set-key [remap query-replace] 'anzu-query-replace)
 
+;;; Join lines
+(global-set-key (kbd "C-?") 'join-line)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here
