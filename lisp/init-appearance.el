@@ -39,7 +39,6 @@
 (diminish 'ruby-refactor-mode)
 (diminish 'guide-key-mode)
 (diminish 'abbrev-mode)
-(diminish 'hl-highlight-mode)
 
 ;; Cursor type
 (setq default-cursor-type 'bar)
