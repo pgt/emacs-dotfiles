@@ -59,6 +59,8 @@
     ;;; Javascript
     js2-mode
     js2-refactor
+    tern ;;; PS: it's necessary install tern (npm install -g tern)
+    tern-auto-complete
 
     ;;; Git tools
     magit

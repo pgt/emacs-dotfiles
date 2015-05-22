@@ -17,5 +17,19 @@
 (require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
+;;; Tern
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+(eval-after-load 'tern
+   '(progn
+      (require 'tern-auto-complete)
+      (tern-ac-setup)))
+
+(add-hook 'jsx-mode-hook (lambda () (tern-mode t))) ;; Using Tern with JSX mode
+
+(defun delete-tern-process ()
+  "Fix error when tern does not auto refresh"
+  (interactive)
+  (delete-process "Tern"))
+
 (provide 'init-javascript)
 ;;; init-javascript.el ends here
