@@ -37,6 +37,7 @@
     ;;; Search
     ag
     anzu ;; Better search mode of file with syntax highlight
+    wgrep
 
     ido-vertical-mode ;; Easy navigation on commands
     fuzzy ;; Completion

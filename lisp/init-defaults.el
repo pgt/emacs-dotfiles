@@ -236,5 +236,9 @@
 (require 'saveplace)
 (setq-default save-place t)
 
+(require 'wgrep)
+(setq wgrep-auto-save-buffer t)
+(setq wgrep-enable-key "r")
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
