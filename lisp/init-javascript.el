@@ -13,5 +13,9 @@
 (add-hook 'js-mode-hook
           (lambda () (flycheck-mode t)))
 
+;;; JS2-Refactor
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+
 (provide 'init-javascript)
 ;;; init-javascript.el ends here

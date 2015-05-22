@@ -58,6 +58,7 @@
 
     ;;; Javascript
     js2-mode
+    js2-refactor
 
     ;;; Git tools
     magit
