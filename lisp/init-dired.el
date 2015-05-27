@@ -26,9 +26,6 @@
 ;;; Show Kbytes on dired
 (setq dired-listing-switches "-alh")
 
-;;; Mutant
-(add-hook 'dired-mode-hook 'mutant-dired-mode)
-
 ;;; Open dired with `a' key
 (put 'dired-find-alternate-file 'disabled nil)
 

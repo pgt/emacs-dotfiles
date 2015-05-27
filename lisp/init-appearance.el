@@ -35,7 +35,6 @@
 (diminish 'git-gutter-mode)
 (diminish 'anzu-mode)
 (diminish 'google-this-mode)
-(diminish 'mutant-mode)
 (diminish 'ruby-refactor-mode)
 (diminish 'guide-key-mode)
 (diminish 'abbrev-mode)

@@ -77,10 +77,7 @@
 ;; Dired open Wdired
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
 
-;; Mutant in dired
-;; (define-key dired-mode-map (kbd "C-c t") 'custom/run-mutant-from-dired)
-
-;; Open buffer of this project
+;; open buffer of this project
 (global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer)
 
 ;; Open project
