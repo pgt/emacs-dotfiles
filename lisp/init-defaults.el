@@ -215,10 +215,6 @@
         ("bookmark" . "hot pink")))
 (setq guide-key/idle-delay 0.8)
 
-;;; Mutant
-(add-to-list 'load-path "~/.emacs.d/vendor/mutant")
-(require 'mutant)
-
 ;;; Scroll settings
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two line at a time

@@ -24,6 +24,7 @@
     undo-tree
     guide-key
     restclient
+    expand-region
 
     ;;; Ruby
     rvm
@@ -65,6 +66,7 @@
     ;;; Git tools
     magit
     git-timemachine ;; Travel for versions of a file on git
+    git-gutter
 
     ;;; my-package ends here
     )
