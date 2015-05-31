@@ -29,5 +29,38 @@
 ;;; Open dired with `a' key
 (put 'dired-find-alternate-file 'disabled nil)
 
+;;; Always recursively delete directory
+(setq dired-recursive-deletes 'always)
+
+;;; Always recursively copy directory
+(setq dired-recursive-copies 'always)
+
+;;; Delete by moving to trash
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.Trash")
+
+;;; Open by the default Mac programs
+(defun open-default-mac-program ()
+	(interactive)
+	(save-window-excursion
+	  (let ((files (dired-get-marked-files nil current-prefix-arg))
+			command)
+		;; the open command
+		(setq command "open ")
+		(dolist (file files)
+		  (setq command (concat command (shell-quote-argument file) " ")))
+		(message command)
+		;; execute the command
+		(async-shell-command command))))
+(define-key dired-mode-map (kbd "C-M-o") 'open-default-mac-program)
+
+(defun open-current-directory-in-finder ()
+	"Open the current directory in Finder"
+	(interactive)
+	(save-window-excursion
+	  (dired-do-async-shell-command
+	   "open .")))
+(define-key dired-mode-map (kbd "C-S-o") 'open-current-directory-in-finder)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here
