@@ -25,6 +25,7 @@
     guide-key
     restclient
     expand-region
+    hl-anything
 
     ;;; Ruby
     rvm
