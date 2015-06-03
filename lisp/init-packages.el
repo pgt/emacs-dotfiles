@@ -69,6 +69,9 @@
     git-timemachine ;; Travel for versions of a file on git
     git-gutter
 
+    ;;; Markdown
+    markdown-mode
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
