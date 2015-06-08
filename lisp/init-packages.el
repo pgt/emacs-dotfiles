@@ -28,7 +28,7 @@
     hl-anything
 
     ;;; Ruby
-    rvm
+    rbenv
     inf-ruby
     rubocop
     rspec-mode

@@ -2,22 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-;;; RVM
-(require 'rvm)
-(rvm-use-default) ;;; use rvm’s default ruby for the current Emacs session
+(require 'rbenv)
+(global-rbenv-mode)
 
-;;; rspec-mode
-(require 'rspec-mode)
-(defadvice rspec-compile (around rspec-compile-around)
-  "Use BASH shell for running the specs because of ZSH issues."
-  (let ((shell-file-name "/bin/bash"))
-    ad-do-it))
-
-(ad-activate 'rspec-compile)
-
-(setq-default rspec-use-rvm t)
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 (setq rspec-use-rake-when-possible nil)
+(setq compilation-scroll-output t)
 
 ;;;;;;;;; autocomplete
 (require 'auto-complete-config)
@@ -29,7 +19,7 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-	    (rvm-activate-corresponding-ruby)
+            (rbenv-use-corresponding)
             (make-local-variable 'ac-ignores)
             ;; ruby keywords
             (add-to-list 'ac-ignores "do")
