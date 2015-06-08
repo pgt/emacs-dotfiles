@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+;; import PATH environment variable
+(let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PATH")))
+  (setenv "PATH" path)
+  (setq exec-path
+        (append (split-string-and-unquote path ":") exec-path)))
+
 ;;;;;;;; Set numbers to lines
 (global-linum-mode t)
 
