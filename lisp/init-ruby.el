@@ -19,7 +19,6 @@
 
 (add-hook 'ruby-mode-hook
           (lambda ()
-            (rbenv-use-corresponding)
             (make-local-variable 'ac-ignores)
             ;; ruby keywords
             (add-to-list 'ac-ignores "do")
