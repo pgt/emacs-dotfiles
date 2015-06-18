@@ -26,6 +26,7 @@
     restclient
     expand-region
     hl-anything
+    company
 
     ;;; Ruby
     rbenv
@@ -35,6 +36,11 @@
     bundler
     smartparens
     ruby-refactor
+
+    ;;; Go-lang
+    go-mode
+    company-go
+    gotest
 
     ;;; Search
     ag
