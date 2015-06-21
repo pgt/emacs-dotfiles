@@ -9,14 +9,6 @@
 (setq rspec-use-rake-when-possible nil)
 (setq compilation-scroll-output t)
 
-;;;;;;;;; autocomplete
-(require 'auto-complete-config)
-(ac-config-default)
-
-(setq ac-auto-start 4)
-(setq ac-auto-show-menu 0.5)
-(setq ac-ignore-case nil)
-
 (add-hook 'ruby-mode-hook
           (lambda ()
             (make-local-variable 'ac-ignores)
