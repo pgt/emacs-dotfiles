@@ -9,7 +9,7 @@
         (append (split-string-and-unquote path ":") exec-path)))
 
 ;;;;;;;; Set numbers to lines
-(global-linum-mode t)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;;;;;;; Save ~ file in a different place
 (setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
