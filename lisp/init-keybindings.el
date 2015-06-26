@@ -32,8 +32,6 @@
 (global-set-key (kbd "M-d") 'kill-word)
 (global-set-key (kbd "M-h") 'backward-kill-word)
 
-(global-set-key (kbd "M-/") 'auto-complete)
-
 (global-set-key [(control shift return)] 'smart-open-line-above)
 
 (global-set-key (kbd "s-d") 'duplicate-line)

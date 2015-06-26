@@ -51,7 +51,6 @@
     fuzzy ;; Completion
     helm-ag ;; Help-ag search
     smex ;; Better interface for M-x
-    auto-complete ;; Auto-complete
     wrap-region ;; Highlight the selected region
 
     ;;; YAML

@@ -9,22 +9,6 @@
 (setq rspec-use-rake-when-possible nil)
 (setq compilation-scroll-output t)
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (make-local-variable 'ac-ignores)
-            ;; ruby keywords
-            (add-to-list 'ac-ignores "do")
-            (add-to-list 'ac-ignores "end")
-            (add-to-list 'ac-ignores "begin")
-            (add-to-list 'ac-ignores "true")
-            (add-to-list 'ac-ignores "false")
-            (add-to-list 'ac-ignores "for")
-            (add-to-list 'ac-ignores "rescue")
-            (add-to-list 'ac-ignores "fail")
-            (add-to-list 'ac-ignores "while")))
-
-(define-key ac-complete-mode-map "\C-n" 'ac-next)
-
 ;;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 

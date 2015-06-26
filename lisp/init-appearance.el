@@ -29,7 +29,6 @@
 (eval-after-load "anzu-mode" '(diminish 'anzu-mode))
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 (diminish 'yas-minor-mode)
-(diminish 'auto-complete-mode)
 (diminish 'undo-tree-mode)
 (diminish 'smartparens-mode)
 (diminish 'git-gutter-mode)
