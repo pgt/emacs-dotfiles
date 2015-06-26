@@ -245,5 +245,9 @@
 (setq wgrep-auto-save-buffer t)
 (setq wgrep-enable-key "r")
 
+;;; Setting some envs
+(setenv "LC_ALL" "en_US.utf-8")
+(setenv "LANG" "en_US.utf-8")
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
