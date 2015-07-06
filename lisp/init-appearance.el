@@ -27,7 +27,6 @@
 (eval-after-load "git-gutter-mode" '(diminish 'git-gutter-mode))
 (eval-after-load "google-this-mode" '(diminish 'google-this-mode))
 (eval-after-load "anzu-mode" '(diminish 'anzu-mode))
-(eval-after-load "company-mode" '(diminish 'company-mode))
 (diminish 'yas-minor-mode)
 (diminish 'undo-tree-mode)
 (diminish 'smartparens-mode)
