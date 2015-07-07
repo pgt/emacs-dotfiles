@@ -37,7 +37,7 @@
 (winner-mode 1)
 
 ;; Global company-mode; autocomplete
-(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 
 ;; when cursor is on edge, move to the other side, as in a toroidal space
 (setq windmove-wrap-around t )

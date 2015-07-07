@@ -32,6 +32,7 @@
 (diminish 'smartparens-mode)
 (diminish 'git-gutter-mode)
 (diminish 'anzu-mode)
+(diminish 'company-mode)
 (diminish 'google-this-mode)
 (diminish 'ruby-refactor-mode)
 (diminish 'guide-key-mode)
