@@ -36,7 +36,7 @@
 
 (global-set-key (kbd "s-d") 'duplicate-line)
 
-(global-set-key (kbd "C-c e") 'rr/split-module-nesting)
+(global-set-key (kbd "C-c e") 'custom/projectile-eshell)
 
 (global-set-key (kbd "C-c i") 'indent-region-or-buffer)
 

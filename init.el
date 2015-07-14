@@ -17,6 +17,7 @@
 (require 'init-yasnippet)
 (require 'init-dired)
 (require 'init-javascript)
+(require 'init-eshell)
 
 (require 'init-appearance)
 (require 'init-window-management)
