@@ -88,7 +88,7 @@
   (define-key map "m" 'git-timemachine)
 
   ;; ag
-  (define-key map "s" 'ag-project)
+  (define-key map "s" 'projectile-helm-ag)
   (define-key map "\C-s" 'ag-project-regexp)
 
   ;; neotree
