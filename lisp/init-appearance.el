@@ -42,8 +42,8 @@
 (setq default-cursor-type 'bar)
 
 ;; Put trasnparency in other frame not used
-(set-frame-parameter (selected-frame) 'alpha '(100 80))
-(add-to-list 'default-frame-alist '(alpha 100 80))
+;; (set-frame-parameter (selected-frame) 'alpha '(100 95))
+;; (add-to-list 'default-frame-alist '(alpha 100 90))
 
 ;; special font option
 (defun custom/use-smaller-font ()
