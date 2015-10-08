@@ -27,6 +27,7 @@
     expand-region
     hl-anything
     company
+    indent-guide
 
     ;;; Ruby
     rbenv

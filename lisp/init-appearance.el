@@ -54,5 +54,9 @@
 
 (add-hook 'compilation-mode-hook 'custom/use-smaller-font)
 
+;; Indent guide
+(require 'indent-guide)
+(indent-guide-global-mode)
+
 (provide 'init-appearance)
 ;;; init-appearance.el ends here
