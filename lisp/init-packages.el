@@ -29,6 +29,7 @@
     company
     indent-guide
     back-button
+    highlight-symbol
 
     ;;; Ruby
     rbenv
