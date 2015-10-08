@@ -65,3 +65,4 @@ image-dired/
 flycheck_init-backup.el
 flycheck_init.el
 /recentf
+/var/pcache/ucs-utils

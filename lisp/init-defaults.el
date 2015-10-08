@@ -249,5 +249,9 @@
 (setenv "LC_ALL" "en_US.utf-8")
 (setenv "LANG" "en_US.utf-8")
 
+;;; Back-button
+(require 'back-button)
+(back-button-mode 1)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

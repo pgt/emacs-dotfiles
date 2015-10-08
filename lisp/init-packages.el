@@ -28,6 +28,7 @@
     hl-anything
     company
     indent-guide
+    back-button
 
     ;;; Ruby
     rbenv
