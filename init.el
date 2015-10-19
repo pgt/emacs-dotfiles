@@ -8,8 +8,12 @@
 (require 'init-custom-defuns)
 
 ;; package-specific
-(require 'init-helm)
-(require 'init-magit)
+(require 'init-package-helm)
+(require 'init-package-magit)
+(require 'init-package-telephone-line)
+(require 'init-package-git-gutter)
+(require 'init-package-multiple-cursors)
+
 (require 'init-project-utils)
 (require 'init-ruby)
 (require 'init-smartparens)
@@ -20,7 +24,9 @@
 (require 'init-eshell)
 
 (require 'init-appearance)
-(require 'init-window-management)
 (require 'init-keybindings)
+
+(require 'init-package-diminish) ;; Should stay at last position
+
 
 ;;; init.el ends here

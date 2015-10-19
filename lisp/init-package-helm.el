@@ -1,4 +1,4 @@
-;;; init-helm.el --- Configures helm usage preferences and keybindings.
+;;; init-package-helm.el --- Configures helm usage preferences and keybindings.
 ;;; Commentary:
 ;;; Code:
 
@@ -20,10 +20,23 @@
       (helm-find-files-up-one-level 1)
     (backward-delete-char 1)))
 
-;; For find-file etc.
+;; Using TAB for navigation
 (define-key helm-read-file-map (kbd "TAB") 'helm-execute-persistent-action)
-;; For helm-find-files etc.
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 
-(provide 'init-helm)
-;;; init-helm.el ends here
+;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Keybindings
+;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "s-N") 'helm-M-x)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "M-l") 'helm-buffers-list)
+(global-set-key (kbd "s-t") 'helm-projectile-find-file)
+
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+
+(global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer) ;; open buffer of this project
+
+
+(provide 'init-package-helm)
+;;; init-package-helm.el ends here

@@ -9,35 +9,6 @@
 ;;; theme
 (load-theme 'gruvbox t)
 
-;;; Powerline
-(add-to-list 'load-path "~/.emacs.d/vendor/powerline")
-(require 'powerline)
-(setq projectile-mode-line
-      '(:eval (format " [%s]" (projectile-project-name))))
-
-;;; Diminish
-(require 'diminish)
-(eval-after-load "flycheck" '(diminish 'flycheck-mode))
-(eval-after-load "helm" '(diminish 'helm-mode))
-(eval-after-load "eldoc" '(diminish 'eldoc-mode))
-(eval-after-load "rubocop" '(diminish 'rubocop-mode))
-(eval-after-load "robe" '(diminish 'robe-mode))
-(eval-after-load "rspec-mode" '(diminish 'rspec-mode))
-(eval-after-load "rainbow-mode" '(diminish 'rainbow-mode))
-(eval-after-load "git-gutter-mode" '(diminish 'git-gutter-mode))
-(eval-after-load "google-this-mode" '(diminish 'google-this-mode))
-(eval-after-load "anzu-mode" '(diminish 'anzu-mode))
-(diminish 'yas-minor-mode)
-(diminish 'undo-tree-mode)
-(diminish 'smartparens-mode)
-(diminish 'git-gutter-mode)
-(diminish 'anzu-mode)
-(diminish 'company-mode)
-(diminish 'google-this-mode)
-(diminish 'ruby-refactor-mode)
-(diminish 'guide-key-mode)
-(diminish 'abbrev-mode)
-
 ;; Cursor type
 (setq default-cursor-type 'bar)
 
@@ -52,6 +23,8 @@
   (setq buffer-face-mode-face '(:family "Inconsolata" :height 120))
   (buffer-face-mode))
 
+;;; When using the compilation-mode, for example on rspec-mode use a
+;;; smaller font to see more information
 (add-hook 'compilation-mode-hook 'custom/use-smaller-font)
 
 ;; Indent guide

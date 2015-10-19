@@ -1,13 +1,6 @@
 ;;; init-keybindings.el -- Configures global keybindings and other keybinding-related stuff.
 ;;; Commentary:
 ;;; Code:
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "s-N") 'helm-M-x)
-(global-set-key (kbd "C-x b") 'helm-buffers-list)
-(global-set-key (kbd "M-l") 'helm-buffers-list)
-(global-set-key (kbd "s-t") 'helm-projectile-find-file)
-
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
 
 (global-set-key (kbd "s-f") 'isearch-forward)
 (global-set-key (kbd "s-/") 'comment-dwim-line)
@@ -21,9 +14,6 @@
 ;;; movement and editing
 (global-set-key [remap kill-word] 'rr/kill-word)
 (global-set-key [remap backward-kill-word] 'rr/backward-kill-word)
-
-;; Magit
-(global-set-key (kbd "C-c y") 'magit-status)
 
 (global-set-key (kbd "C-c C-f") 'helm-projectile-find-file)
 
@@ -74,9 +64,6 @@
 
 ;; Dired open Wdired
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
-
-;; open buffer of this project
-(global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer)
 
 ;; Open project
 (global-set-key (kbd "s-o") 'helm-rr-open-project)

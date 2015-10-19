@@ -1,4 +1,4 @@
-;;; init-magit.el -- Configures the amazing and magic magit interface to git.
+;;; init-package-magit.el -- Configures the amazing and magic magit interface to git.
 ;;; Commentary:
 ;;; Code:
 
@@ -17,5 +17,7 @@
   ad-do-it
   (delete-other-windows))
 
-(provide 'init-magit)
-;;; init-magit.el ends here
+(global-set-key (kbd "C-c y") 'magit-status)
+
+(provide 'init-package-magit)
+;;; init-package-magit.el ends here

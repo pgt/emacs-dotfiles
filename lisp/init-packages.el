@@ -62,6 +62,7 @@
     ;;; UI
     popup
     gruvbox-theme ;; My theme
+    telephone-line
 
     ;;; HTML
     rhtml-mode
