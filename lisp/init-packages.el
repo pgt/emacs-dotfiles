@@ -53,7 +53,6 @@
     ido-vertical-mode ;; Easy navigation on commands
     fuzzy ;; Completion
     helm-ag ;; Help-ag search
-    smex ;; Better interface for M-x
     wrap-region ;; Highlight the selected region
 
     ;;; YAML
