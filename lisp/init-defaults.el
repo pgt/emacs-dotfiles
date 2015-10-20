@@ -178,5 +178,8 @@
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
+;; Wrap-region
+(wrap-region-mode t)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
