@@ -78,6 +78,7 @@
     magit
     git-timemachine ;; Travel for versions of a file on git
     git-gutter
+    diff-hl
 
     ;;; Markdown
     markdown-mode

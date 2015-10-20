@@ -42,5 +42,6 @@
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
 
+
 (provide 'init-ruby)
 ;;; init-ruby.el ends here

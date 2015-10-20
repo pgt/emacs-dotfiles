@@ -153,5 +153,8 @@
 ;; Highlight-mode
 (hl-highlight-mode 1)
 
+;; Diff-hl no dired
+(add-hook 'dired-mode-hook 'diff-hl-dired-mode)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
