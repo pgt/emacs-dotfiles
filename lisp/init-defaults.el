@@ -96,14 +96,6 @@
 ;; Reuse buffers between frames
 (setq-default display-buffer-reuse-frames t)
 
-;; Helm AG
-(setq helm-ag-base-command "/usr/local/bin/ag --nocolor --nogroup --ignore-case")
-(setq helm-ag-command-option "--all-text")
-(setq helm-ag-insert-at-point 'symbol)
-(defun projectile-helm-ag ()
-  (interactive)
-  (helm-ag (projectile-project-root)))
-
 ;;; Guide-key configurations
 (require 'guide-key)
 (setq guide-key/guide-key-sequence 't)

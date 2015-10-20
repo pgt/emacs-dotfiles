@@ -45,14 +45,6 @@
                         path)))
     (find-file (find-default-file))))
 
-;; ===============
-;; -- ag config --
-;; ===============
-(setq
- ag-highlight-search t ;; highlight the matches
- ag-reuse-window nil   ;; do not use the same window for the search result
- ag-reuse-buffers t)   ;; use the same buffer for many searches
-
 ;; =====================================
 ;; -- extensions to projectile keymap --
 ;; =====================================
