@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(global-set-key (kbd "s-f") 'isearch-forward)
+(global-set-key (kbd "s-f") 'swiper)
 (global-set-key (kbd "s-/") 'comment-dwim-line)
 
 ;; Navigation
