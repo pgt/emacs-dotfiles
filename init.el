@@ -19,6 +19,7 @@
 (require 'init-package-swiper)
 
 (require 'init-project-utils)
+(require 'init-view-mode)
 (require 'init-ruby)
 (require 'init-smartparens)
 (require 'init-yasnippet)
