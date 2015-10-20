@@ -25,7 +25,6 @@
 (diminish 'guide-key-mode)
 (diminish 'abbrev-mode)
 (diminish 'hl-highlight-mode)
-(diminish 'hl-paren-mode)
 
 (provide 'init-package-diminish)
 ;;; init-package-diminish.el ends here

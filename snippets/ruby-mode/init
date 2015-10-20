@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: init
+# key: init
+# --
+def initialize(${1:args})
+    ${1:$(rr/initialize-instance-vars yas-text)}
+end
+${1:$(rr/initialize-readers yas-text)}

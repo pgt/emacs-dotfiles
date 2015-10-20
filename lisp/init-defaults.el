@@ -152,7 +152,6 @@
 
 ;; Highlight-mode
 (hl-highlight-mode 1)
-(hl-paren-mode 1)
 
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
