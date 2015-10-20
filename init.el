@@ -16,6 +16,7 @@
 (require 'init-package-neotree)
 (require 'init-package-helm-ag)
 (require 'init-package-ag)
+(require 'init-package-swiper)
 
 (require 'init-project-utils)
 (require 'init-ruby)
