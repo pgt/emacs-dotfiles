@@ -108,6 +108,5 @@ This function runs the actual AppleScript."
     (start-process "osascript-getinfo" nil "osascript" "-e" script) ; Run AppleScript.
     ))
 
-
 (provide 'init-dired)
 ;;; init-dired.el ends here

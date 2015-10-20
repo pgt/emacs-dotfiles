@@ -12,7 +12,7 @@
 ;; Cursor type
 (setq default-cursor-type 'bar)
 
-;; Put trasnparency in other frame not used
+;; Put transparency in other frame not used
 ;; (set-frame-parameter (selected-frame) 'alpha '(100 95))
 ;; (add-to-list 'default-frame-alist '(alpha 100 90))
 
@@ -26,10 +26,6 @@
 ;;; When using the compilation-mode, for example on rspec-mode use a
 ;;; smaller font to see more information
 (add-hook 'compilation-mode-hook 'custom/use-smaller-font)
-
-;; Indent guide
-(require 'indent-guide)
-(indent-guide-global-mode)
 
 (provide 'init-appearance)
 ;;; init-appearance.el ends here

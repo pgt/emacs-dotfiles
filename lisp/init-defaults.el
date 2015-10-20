@@ -16,8 +16,6 @@
 
 ;; Initializing in ~/code
 (custom-set-variables
- '(ansi-color-names-vector
-   ["#3c3836" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#d3869b" "#8ec07c" "#ebdbb2"])
  '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
  '(custom-safe-themes
    (quote
@@ -180,6 +178,10 @@
 
 ;; Wrap-region
 (wrap-region-mode t)
+
+;; Indent guide
+(require 'indent-guide)
+(indent-guide-global-mode)
 
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
