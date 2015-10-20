@@ -122,5 +122,5 @@
 (require 'auto-package-update)
 (auto-package-update-maybe)
 
-(provide `init-packages)
+(provide 'init-packages)
 ;;; init-packages.el ends here

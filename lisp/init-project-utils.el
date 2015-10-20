@@ -53,34 +53,11 @@
  ag-reuse-window nil   ;; do not use the same window for the search result
  ag-reuse-buffers t)   ;; use the same buffer for many searches
 
-;; ====================
-;; -- neotree config --
-;; ====================
-(setq
- neo-persist-show nil
- neo-keymap-style 'concise)
-
-(require 'neotree)
-
-(define-key neotree-mode-map (kbd "C-x C-s") 'noop)
-
-(defun neotree-git-project ()
-  "Open dirtree using the git root."
-  (interactive)
-  (let ((project-dir (ffip-project-root))
-        (file-name (buffer-file-name)))
-    (if project-dir
-        (progn
-          (neotree-dir project-dir)
-          (neotree-find file-name))
-      (message "Could not find git project root."))))
-
 ;; =====================================
 ;; -- extensions to projectile keymap --
 ;; =====================================
 (let ((map projectile-command-map))
   ;; general utils
-  (define-key map "o" 'helm-rr-open-project)
   (define-key map "n" 'rr-show-file-name)
   (define-key map "\C-n" 'rr-new-git-project)
   (define-key map "\C-g" 'rr-add-gitignore-file)

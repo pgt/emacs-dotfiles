@@ -13,6 +13,7 @@
 (require 'init-package-telephone-line)
 (require 'init-package-git-gutter)
 (require 'init-package-multiple-cursors)
+(require 'init-package-neotree)
 
 (require 'init-project-utils)
 (require 'init-ruby)
@@ -27,5 +28,5 @@
 
 (require 'init-package-diminish) ;; Should stay at last position
 
-
+(provide 'init)
 ;;; init.el ends here
