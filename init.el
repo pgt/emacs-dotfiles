@@ -17,7 +17,6 @@
 (require 'init-project-utils)
 (require 'init-ruby)
 (require 'init-smartparens)
-(require 'init-isearch)
 (require 'init-yasnippet)
 (require 'init-dired)
 (require 'init-javascript)
