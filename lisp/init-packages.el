@@ -62,6 +62,8 @@
     ;;; UI
     popup
     gruvbox-theme ;; My theme
+    gruvbox-theme ;; My theme
+    solarized-theme ;; My theme
     telephone-line
 
     ;;; HTML

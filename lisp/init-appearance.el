@@ -7,7 +7,7 @@
 (scroll-bar-mode -1)
 
 ;;; theme
-(load-theme 'gruvbox t)
+(load-theme 'solarized-dark t)
 
 ;; Cursor type
 (setq default-cursor-type 'bar)
