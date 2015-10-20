@@ -21,7 +21,6 @@
 (diminish 'anzu-mode)
 (diminish 'company-mode)
 (diminish 'google-this-mode)
-(diminish 'ruby-refactor-mode)
 (diminish 'guide-key-mode)
 (diminish 'abbrev-mode)
 (diminish 'hl-highlight-mode)

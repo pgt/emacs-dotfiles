@@ -38,7 +38,6 @@
     rspec-mode
     bundler
     smartparens
-    ruby-refactor
 
     ;;; Go-lang
     go-mode
