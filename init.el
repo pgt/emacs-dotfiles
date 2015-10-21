@@ -29,6 +29,7 @@
 
 (require 'init-appearance)
 (require 'init-keybindings)
+(require 'init-org)
 
 (require 'init-package-diminish) ;; Should stay at last position
 
