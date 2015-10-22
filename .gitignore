@@ -66,3 +66,5 @@ flycheck_init-backup.el
 flycheck_init.el
 /recentf
 /var/pcache/ucs-utils
+/.DS_Store
+/fonts/.DS_Store

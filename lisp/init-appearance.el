@@ -9,6 +9,9 @@
 ;;; theme
 (load-theme 'solarized-dark t)
 
+;; Set font
+(set-default-font "Source Code Pro")
+
 ;; Cursor type
 (setq default-cursor-type 'bar)
 
