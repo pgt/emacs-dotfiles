@@ -10,7 +10,6 @@
 ;; package-specific
 (require 'init-package-helm)
 (require 'init-package-magit)
-(require 'init-package-telephone-line)
 (require 'init-package-git-gutter)
 (require 'init-package-multiple-cursors)
 (require 'init-package-neotree)

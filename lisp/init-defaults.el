@@ -136,5 +136,8 @@
 ;; Diff-hl no dired
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
+;; default window size
+(when window-system (set-frame-size (selected-frame) 140 35))
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

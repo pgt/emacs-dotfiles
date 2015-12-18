@@ -62,7 +62,6 @@
     gruvbox-theme ;; My theme
     gruvbox-theme ;; My theme
     solarized-theme ;; My theme
-    telephone-line
 
     ;;; HTML
     rhtml-mode
@@ -93,7 +92,7 @@
     paredit
     whitespace
     wrap-region
-    ffap
+    ffap ;; TODO: What is this?
     recentf
     saveplace
     ansi-color
