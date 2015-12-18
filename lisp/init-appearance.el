@@ -7,7 +7,7 @@
 (scroll-bar-mode -1)
 
 ;;; theme
-(load-theme 'solarized-dark t)
+(load-theme 'atom-dark t)
 
 ;; Set font
 (set-default-font "Source Code Pro")
