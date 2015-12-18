@@ -136,13 +136,8 @@
 ;; Diff-hl no dired
 (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
 
-;; default window size
-(when window-system (set-frame-size (selected-frame) 140 35))
-
-;; fix theme switching
-(defadvice load-theme (before smooth-theme-switching activate)
-  (ad-set-arg 1 t)
-  (mapcar #'disable-theme custom-enabled-themes))
+;; Set a better column size
+(setq fill-column 80)
 
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
