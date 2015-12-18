@@ -130,10 +130,6 @@
 ;; Wrap-region
 (wrap-region-mode t)
 
-;; Indent guide
-(require 'indent-guide)
-(indent-guide-global-mode)
-
 ;; Highlight-mode
 (hl-highlight-mode 1)
 

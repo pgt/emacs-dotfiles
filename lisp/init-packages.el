@@ -27,7 +27,6 @@
     expand-region
     hl-anything
     company
-    indent-guide
     back-button
     highlight-symbol
 
