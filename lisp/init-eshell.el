@@ -1,5 +1,6 @@
 (require 'eshell)
 
+;; TODO: where all this has been used?
 (defun custom/bash-command (&rest cmd)
   "Run CMD as if you were in a bash shell instead of Eshell."
   (insert (format "bash -c 'source ~/.bash_profile; cd %s; %s'"

@@ -16,6 +16,7 @@
 (require 'init-package-helm-ag)
 (require 'init-package-ag)
 (require 'init-package-swiper)
+(require 'init-package-undo-tree)
 
 (require 'init-project-utils)
 (require 'init-view-mode)
