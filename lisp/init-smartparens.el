@@ -50,13 +50,6 @@
   (sp-local-tag "_" "_" "_")
   (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 
-(sp-with-modes '(org-mode)
-  (sp-local-pair "/" "/")
-  (sp-local-pair "_" "_")
-  (sp-local-pair "*" "*")
-  (sp-local-pair "=" "=")
-  (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
-
 (sp-with-modes '(tex-mode plain-tex-mode latex-mode)
   (sp-local-pair "$" "$")
   (sp-local-tag "i" "\"<" "\">"))
