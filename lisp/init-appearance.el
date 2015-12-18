@@ -30,5 +30,27 @@
 ;;; smaller font to see more information
 (add-hook 'compilation-mode-hook 'custom/use-smaller-font)
 
+;; modeline
+(defun branch-name ()
+  ;; for powerline patched fonts, the unicode char \ue0a0 is cooler!
+  (when vc-mode (concat "@ " (substring vc-mode 5))))
+
+(setq-default mode-line-format
+              (list
+               ;; add padding to mode-line (hacky solution)
+               (propertize "\u200b" 'display '((raise -0.15) (height 1.2)))
+               "[" mode-line-modified "]"
+               "  "
+               (propertize "%b" 'face 'bold)
+               "  |  "
+               'mode-name
+               "  |  "
+               '(:eval (projectile-project-name))
+               " "
+               '(:eval (branch-name))
+               "  |  "
+               "%p (%l:%c)"
+               ))
+
 (provide 'init-appearance)
 ;;; init-appearance.el ends here
