@@ -108,5 +108,8 @@ This function runs the actual AppleScript."
     (start-process "osascript-getinfo" nil "osascript" "-e" script) ; Run AppleScript.
     ))
 
+;; Going to the Up directory
+(define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here
