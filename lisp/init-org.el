@@ -129,5 +129,8 @@
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
+;; Use Ctrl-TAB to change buffer
+(add-hook 'org-mode-hook (lambda () (local-set-key [(control tab)] 'other-window)))
+
 (provide 'init-org)
 ;;; init-org.el ends here
