@@ -51,6 +51,12 @@
 (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; Navigation
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key "\C-j" 'backward-word)
+            (local-set-key "\C-k" 'forward-word)))
+
 (defun bh/hide-other ()
   (interactive)
   (save-excursion
