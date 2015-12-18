@@ -106,7 +106,18 @@
     sh-script
     sgml-mode
     nxml-mode
-    yaml-mode))
+    yaml-mode
+    anzu
+    smartscan
+    google-this
+    undo-tree
+    back-button
+    guide-key
+    expand-region
+    recentf
+    saveplace
+    wgrep
+    highlight-symbol))
 
 ;; package loading
 (setq packaged-contents-refreshed-p nil)
@@ -127,6 +138,19 @@
 ;; Automagically updating packages
 (require 'auto-package-update)
 (auto-package-update-maybe)
+
+;;; Enabling packages
+(global-anzu-mode t) ;; Anzu
+(smartscan-mode 1) ;;; Smartscan
+(google-this-mode 1) ;; Google this
+(undo-tree-mode 1) ;; Undo tree
+(wrap-region-mode t) ;; Wrap-region
+(hl-highlight-mode 1) ;; Highlight-mode
+(back-button-mode 1) ;;; Back-button
+(global-hl-line-mode 1) ;; Highlight current line
+(delete-selection-mode 1) ;; Delete on selected text
+(winner-mode 1) ;; Undo and Redo window configuration
+(global-company-mode) ;; Autocomplete
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
