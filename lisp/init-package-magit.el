@@ -19,5 +19,8 @@
 
 (global-set-key (kbd "C-c y") 'magit-status)
 
+;; make pull --rebase default
+(setq magit-pull-arguments '("--rebase"))
+
 (provide 'init-package-magit)
 ;;; init-package-magit.el ends here
