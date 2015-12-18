@@ -64,5 +64,16 @@
                "%p (%l:%c)"
                ))
 
+;; default window size
+(when window-system (set-frame-size (selected-frame) 140 35))
+
+;; fix theme switching
+(defadvice load-theme (before smooth-theme-switching activate)
+  (ad-set-arg 1 t)
+  (mapcar #'disable-theme custom-enabled-themes))
+
+;; nice fonts in OS X
+(setq mac-allow-anti-aliasing t)
+
 (provide 'init-appearance)
 ;;; init-appearance.el ends here
