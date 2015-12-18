@@ -94,7 +94,7 @@
     paredit
     whitespace
     wrap-region
-    ffap ;; TODO: What is this?
+    ffap ;; This is for go directly in files
     recentf
     saveplace
     ansi-color
