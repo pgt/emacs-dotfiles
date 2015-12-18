@@ -68,3 +68,5 @@ flycheck_init.el
 /var/pcache/ucs-utils
 /.DS_Store
 /fonts/.DS_Store
+/bookmarks
+/url/cookies
