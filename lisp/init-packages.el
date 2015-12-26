@@ -86,6 +86,9 @@
     ;;; Org
     org-bullets
 
+    ;;; Docker
+    dockerfile-mode
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
@@ -117,7 +120,10 @@
     recentf
     saveplace
     wgrep
-    highlight-symbol))
+    highlight-symbol
+    flycheck
+    js2-refactor
+    dockerfile-mode))
 
 ;; package loading
 (setq packaged-contents-refreshed-p nil)
