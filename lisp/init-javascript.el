@@ -9,12 +9,11 @@
 ;; value of the variable to the level that you want
 (setq js2-highlight-level 3)
 
-(require 'flycheck)
+;; Flycheck configs
 (add-hook 'js-mode-hook
           (lambda () (flycheck-mode t)))
 
 ;;; JS2-Refactor
-(require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 ;;; Tern
