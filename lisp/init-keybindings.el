@@ -8,8 +8,13 @@
 ;; Navigation
 (global-set-key (kbd "C-j") 'backward-word)
 (global-set-key (kbd "C-k") 'forward-word)
+(global-set-key (kbd "C-o") 'kill-line)
 
-(global-set-key (kbd "C-o") 'kill-line) ;; kill line
+;; Mac OSX default keybindings
+(global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "s-c") 'ns-copy-including-secondary)
+(global-set-key (kbd "s-v") 'yank)
+(global-set-key (kbd "s-k") 'kill-this-buffer)
 
 ;;; movement and editing
 (global-set-key [remap kill-word] 'rr/kill-word)
