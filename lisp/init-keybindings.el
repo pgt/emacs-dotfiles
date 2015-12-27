@@ -13,8 +13,13 @@
 ;; Mac OSX default keybindings
 (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "s-c") 'ns-copy-including-secondary)
+(global-set-key (kbd "s-x") 'kill-region)
 (global-set-key (kbd "s-v") 'yank)
 (global-set-key (kbd "s-k") 'kill-this-buffer)
+(global-set-key (kbd "s-u") 'revert-buffer)
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
+(global-set-key (kbd "s-q") 'save-buffers-kill-emacs)
+(global-set-key (kbd "s-l") 'goto-line)
 
 ;;; movement and editing
 (global-set-key [remap kill-word] 'rr/kill-word)
