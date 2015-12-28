@@ -11,7 +11,8 @@
 (defvar project-sources
   (list
    default-project-source
-   "~/code/locaweb/"))
+   "~/gocode/src/github.com/pgt"
+   "~/gocode/src/bitbucket.org/pgtnetwork"))
 
 ;; helm integration for opening projects
 (defun helm-rr-open-project ()
