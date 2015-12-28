@@ -3,9 +3,9 @@
 ;;; Code:
 
 (require 'go-mode)
-(setenv "GOPATH" "/Users/pedrotavares/gocode")
+(setenv "GOPATH" "$HOME/gocode")
 (setq exec-path (cons "/usr/local/go/bin" exec-path))
-(add-to-list 'exec-path "/Users/pedrotavares/code/bin")
+(add-to-list 'exec-path "$HOME/gocode/bin")
 
 ;;; Formating
 (add-hook 'before-save-hook 'gofmt-before-save)
