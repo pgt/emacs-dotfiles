@@ -1,3 +1,6 @@
+;;; init-eshell.el -- Configure eshell
+;;; Commentary:
+;;; Code:
 (require 'eshell)
 
 ;; TODO: where all this has been used?
@@ -23,3 +26,4 @@
       (eshell-send-input))))
 
 (provide 'init-eshell)
+;;; init-eshell.el ends here
