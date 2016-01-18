@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "M-l") 'helm-buffers-list)
 (global-set-key (kbd "s-t") 'helm-projectile-find-file)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 
