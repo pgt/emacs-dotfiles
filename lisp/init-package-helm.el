@@ -34,6 +34,7 @@
 (global-set-key (kbd "s-t") 'helm-projectile-find-file)
 
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer) ;; open buffer of this project
 
