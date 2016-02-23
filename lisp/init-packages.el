@@ -37,6 +37,7 @@
     rspec-mode
     bundler
     smartparens
+    mutant
 
     ;;; Go-lang
     go-mode
@@ -123,6 +124,7 @@
     highlight-symbol
     flycheck
     js2-refactor
+    mutant
     dockerfile-mode))
 
 ;; package loading

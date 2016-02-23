@@ -111,5 +111,8 @@ This function runs the actual AppleScript."
 ;; Going to the Up directory
 (define-key dired-mode-map (kbd "C-l") 'dired-up-directory)
 
+;; Mutant integration
+(add-hook 'dired-mode-hook 'mutant-dired-mode)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here
