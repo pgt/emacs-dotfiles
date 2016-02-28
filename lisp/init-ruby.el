@@ -17,6 +17,7 @@
 
 ;;; Mutant
 (add-hook 'ruby-mode-hook 'mutant-mode)
+(setq mutant-cmd-base "bundle exec mutant")
 
 ;; Ruby-mode :: Dont add utf-8 coding to files
 (setq ruby-insert-encoding-magic-comment nil)
