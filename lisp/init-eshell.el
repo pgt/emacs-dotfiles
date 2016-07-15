@@ -25,5 +25,8 @@
       (insert (format "cd %s" shell-dir))
       (eshell-send-input))))
 
+(add-hook 'eshell-mode-hook
+          (lambda () (company-mode -1)))
+
 (provide 'init-eshell)
 ;;; init-eshell.el ends here
