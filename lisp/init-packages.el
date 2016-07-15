@@ -58,7 +58,6 @@
     ;;; UI
     popup
     gruvbox-theme ;; My theme
-    gruvbox-theme ;; My theme
     solarized-theme ;; My theme
     atom-one-dark-theme
     atom-dark-theme
