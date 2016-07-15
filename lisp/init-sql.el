@@ -22,5 +22,23 @@
 		 (sql-password "password")
 		 (sql-database "db2"))))
 
+;; Upcase all sql keywords
+(defun upcase-sql-keywords ()
+    (interactive)
+    (save-excursion
+      (dolist (keywords sql-mode-postgres-font-lock-keywords)
+        (goto-char (point-min))
+        (while (re-search-forward (car keywords) nil t)
+          (goto-char (+ 1 (match-beginning 0)))
+          (when (eql font-lock-keyword-face (face-at-point))
+            (backward-char)
+            (upcase-word 1)
+            (forward-char))))))
+
+(add-hook 'sql-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'upcase-sql-keywords)))
+
+
 (provide 'init-sql)
 ;;; init-sql.el ends here
