@@ -26,6 +26,7 @@
 (require 'init-javascript)
 (require 'init-eshell)
 (require 'init-git-pr)
+(require 'init-sql)
 
 (require 'init-appearance)
 (require 'init-keybindings)
