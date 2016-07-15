@@ -101,5 +101,12 @@
 ;;; Join lines
 (global-set-key (kbd "C-?") 'join-line)
 
+;;; Buffer actions, rename and delete
+(global-set-key (kbd "C-c d") #'pgt-delete-file-and-buffer)
+(global-set-key (kbd "C-c r") #'pgt-rename-file-and-buffer)
+
+;;; Open source code of an URL. Is the same keybinding of Chrome show source-code
+(global-set-key (kbd "M-s-¨") #'pgt-view-url-source-code)
+
 (provide 'init-keybindings)
 ;;; init-keybindings.el ends here

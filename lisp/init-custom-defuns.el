@@ -316,5 +316,50 @@ point reaches the beginning or end of the buffer, stop there."
   (interactive "p")
   (delete-region (point) (progn (backward-word arg) (point))))
 
+;; Delete file and buffer
+(defun pgt-delete-file-and-buffer ()
+  "Kill the current buffer and deletes the file it is visiting."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (when filename
+      (if (vc-backend filename)
+          (vc-delete-file filename)
+        (when (y-or-n-p (format "Are you sure you want to delete %s? " filename))
+          (delete-file filename delete-by-moving-to-trash)
+          (message "Deleted file %s" filename)
+          (kill-buffer))))))
+(defalias 'pgt-delete-buffer-and-file #'pgt-delete-file-and-buffer)
+
+;; Rename file and buffer
+(defun pgt-rename-file-and-buffer ()
+  "Rename current buffer and if the buffer is visiting a file, rename it too."
+  (interactive)
+  (let ((filename (buffer-file-name)))
+    (if (not (and filename (file-exists-p filename)))
+        (rename-buffer (read-from-minibuffer "New name: " (buffer-name)))
+      (let* ((new-name (read-from-minibuffer "New name: " filename))
+             (containing-dir (file-name-directory new-name)))
+        (make-directory containing-dir t)
+        (cond
+         ((vc-backend filename) (vc-rename-file filename new-name))
+         (t
+          (rename-file filename new-name t)
+          (set-visited-file-name new-name t t)))))))
+(defalias 'pgt-rename-buffer-and-file #'pgt-rename-file-and-buffer)
+
+;; Open URL source code
+(defun pgt-view-url-source-code ()
+  "Open a new buffer containing the contents of URL."
+  (interactive)
+  (let* ((default (thing-at-point-url-at-point))
+         (url (read-from-minibuffer "URL: " default)))
+    (switch-to-buffer (url-retrieve-synchronously url))
+    (rename-buffer url t)
+    (goto-char (point-min))
+    (re-search-forward "^$")
+    (delete-region (point-min) (point))
+    (delete-blank-lines)
+    (set-auto-mode)))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here
