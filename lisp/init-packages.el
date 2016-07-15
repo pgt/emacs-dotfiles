@@ -25,7 +25,6 @@
     expand-region
     hl-anything
     company
-    back-button
     highlight-symbol
 
     ;;; Ruby
@@ -113,7 +112,6 @@
     smartscan
     google-this
     undo-tree
-    back-button
     expand-region
     recentf
     saveplace
@@ -151,7 +149,6 @@
 (undo-tree-mode 1) ;; Undo tree
 (wrap-region-mode t) ;; Wrap-region
 (hl-highlight-mode 1) ;; Highlight-mode
-(back-button-mode 1) ;;; Back-button
 (global-hl-line-mode 1) ;; Highlight current line
 (delete-selection-mode 1) ;; Delete on selected text
 (winner-mode 1) ;; Undo and Redo window configuration
