@@ -70,3 +70,4 @@ flycheck_init.el
 /fonts/.DS_Store
 /bookmarks
 /url/cookies
+/var/pcache/cache
