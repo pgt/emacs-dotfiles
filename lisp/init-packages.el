@@ -17,7 +17,6 @@
     helm ;; Help in navigation
     projectile ;; Project interaction
     helm-projectile ;; Navigation for Projectile
-    neotree ;; Like NerdTree on Vim, F8
     google-this
     diminish
     paredit ;; TODO

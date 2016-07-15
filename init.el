@@ -12,7 +12,6 @@
 (require 'init-package-magit)
 (require 'init-package-git-gutter)
 (require 'init-package-multiple-cursors)
-(require 'init-package-neotree)
 (require 'init-package-helm-ag)
 (require 'init-package-ag)
 (require 'init-package-swiper)

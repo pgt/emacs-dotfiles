@@ -61,10 +61,6 @@
   (define-key map "s" 'projectile-helm-ag)
   (define-key map "\C-s" 'ag-project-regexp)
 
-  ;; neotree
-  (define-key map "d" 'neotree-git-project)
-  (define-key map "x" 'neotree-find)
-
   (define-key map "h" 'hl-highlight-thingatpt-local)
   (define-key map "u" 'hl-unhighlight-all-local)
 
