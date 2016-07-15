@@ -22,5 +22,8 @@
 ;; make pull --rebase default
 (setq magit-pull-arguments '("--rebase"))
 
+;; Github integrations of Pull requests
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+
 (provide 'init-package-magit)
 ;;; init-package-magit.el ends here

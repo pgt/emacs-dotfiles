@@ -76,6 +76,7 @@
     git-timemachine ;; Travel for versions of a file on git
     git-gutter
     diff-hl
+    magit-gh-pulls
 
     ;;; Markdown
     markdown-mode
@@ -119,7 +120,8 @@
     flycheck
     js2-refactor
     mutant
-    dockerfile-mode))
+    dockerfile-mode
+    magit-gh-pulls))
 
 ;; package loading
 (setq packaged-contents-refreshed-p nil)
