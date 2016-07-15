@@ -22,7 +22,6 @@
     diminish
     paredit ;; TODO
     undo-tree
-    guide-key
     restclient
     expand-region
     hl-anything
@@ -116,7 +115,6 @@
     google-this
     undo-tree
     back-button
-    guide-key
     expand-region
     recentf
     saveplace

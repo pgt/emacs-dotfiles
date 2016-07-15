@@ -52,16 +52,6 @@
 ;; Reuse buffers between frames
 (setq-default display-buffer-reuse-frames t)
 
-;;; Guide-key configurations
-(setq guide-key/guide-key-sequence 't)
-(guide-key-mode 1)  ; Enable guide-key-mode
-(setq guide-key/highlight-command-regexp "rectangle")
-(setq guide-key/highlight-command-regexp
-      '("rectangle"
-        ("register" . font-lock-type-face)
-        ("bookmark" . "hot pink")))
-(setq guide-key/idle-delay 0.8)
-
 ;;; Scroll settings
 ;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two line at a time
