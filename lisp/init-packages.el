@@ -86,6 +86,7 @@
 
     ;;; Docker
     dockerfile-mode
+    docker
 
     ;;; my-package ends here
     )
@@ -121,6 +122,7 @@
     js2-refactor
     mutant
     dockerfile-mode
+    docker
     magit-gh-pulls))
 
 ;; package loading
@@ -154,6 +156,7 @@
 (delete-selection-mode 1) ;; Delete on selected text
 (winner-mode 1) ;; Undo and Redo window configuration
 (global-company-mode) ;; Autocomplete
+(docker-global-mode t) ;; Autocomplete
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
