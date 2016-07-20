@@ -20,6 +20,7 @@
 (require 'init-project-utils)
 (require 'init-view-mode)
 (require 'init-ruby)
+(require 'init-elixir)
 (require 'init-smartparens)
 (require 'init-yasnippet)
 (require 'init-dired)

@@ -88,6 +88,11 @@
     dockerfile-mode
     docker
 
+    ;;; Elixir
+    elixir-mode
+    alchemist
+    flycheck-mix
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
@@ -123,7 +128,11 @@
     mutant
     dockerfile-mode
     docker
-    magit-gh-pulls))
+    magit-gh-pulls
+    elixir-mode
+    alchemist
+    flycheck-mix
+    ))
 
 ;; package loading
 (setq packaged-contents-refreshed-p nil)
@@ -157,6 +166,7 @@
 (winner-mode 1) ;; Undo and Redo window configuration
 (global-company-mode) ;; Autocomplete
 (docker-global-mode t) ;; Autocomplete
+(alchemist-mode t) ;; Autocomplete
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
