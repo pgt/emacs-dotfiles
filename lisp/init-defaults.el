@@ -86,5 +86,8 @@
 ;; Set a better column size
 (setq fill-column 80)
 
+;; This for open all files in the current emacs section
+(setq ns-pop-up-frames nil)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
