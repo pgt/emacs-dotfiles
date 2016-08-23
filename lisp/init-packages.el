@@ -99,6 +99,9 @@
     ;;; Frontend
     scss-mode
 
+    ;;; PHP
+    php-mode
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
