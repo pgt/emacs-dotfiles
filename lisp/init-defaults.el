@@ -89,5 +89,9 @@
 ;; This for open all files in the current emacs section
 (setq ns-pop-up-frames nil)
 
+;;; TODO: Put this in a frontend file or CSS file
+(autoload 'scss-mode "scss-mode")
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

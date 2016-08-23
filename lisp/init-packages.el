@@ -96,6 +96,9 @@
     ;;; Productivity
     wakatime-mode
 
+    ;;; Frontend
+    scss-mode
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
@@ -135,6 +138,7 @@
     elixir-mode
     alchemist
     flycheck-mix
+    scss-mode
     ))
 
 ;; package loading
