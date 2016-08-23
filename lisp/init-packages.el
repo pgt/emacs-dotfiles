@@ -93,6 +93,9 @@
     alchemist
     flycheck-mix
 
+    ;;; Productivity
+    wakatime-mode
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
@@ -167,6 +170,7 @@
 (global-company-mode) ;; Autocomplete
 (docker-global-mode t) ;; Autocomplete
 (alchemist-mode t) ;; Autocomplete
+(global-wakatime-mode)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
