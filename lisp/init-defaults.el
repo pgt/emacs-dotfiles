@@ -93,5 +93,15 @@
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 
+(defun squiter/get-window-name ()
+  "Get a project name or buffer name."
+  (if (projectile-project-p)
+      (projectile-project-name)
+    (buffer-name)))
+
+(setq frame-title-format
+      '("emacs@"
+        (:eval (squiter/get-window-name))))
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here
