@@ -93,9 +93,6 @@
     alchemist
     flycheck-mix
 
-    ;;; Productivity
-    wakatime-mode
-
     ;;; Frontend
     scss-mode
 
@@ -177,7 +174,6 @@
 (global-company-mode) ;; Autocomplete
 (docker-global-mode t) ;; Autocomplete
 (alchemist-mode t) ;; Autocomplete
-(global-wakatime-mode)
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
