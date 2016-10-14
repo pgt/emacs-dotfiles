@@ -28,6 +28,7 @@
 (require 'init-eshell)
 (require 'init-git-pr)
 (require 'init-sql)
+(require 'init-docker)
 
 (require 'init-appearance)
 (require 'init-keybindings)

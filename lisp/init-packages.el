@@ -133,7 +133,6 @@
     js2-refactor
     mutant
     dockerfile-mode
-    docker
     magit-gh-pulls
     elixir-mode
     alchemist
@@ -172,8 +171,8 @@
 (delete-selection-mode 1) ;; Delete on selected text
 (winner-mode 1) ;; Undo and Redo window configuration
 (global-company-mode) ;; Autocomplete
-(docker-global-mode t) ;; Autocomplete
-(alchemist-mode t) ;; Autocomplete
+(docker-global-mode t) ;; Docker keybidings
+(alchemist-mode t) ;; Elixir
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
