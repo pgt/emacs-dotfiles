@@ -361,5 +361,16 @@ point reaches the beginning or end of the buffer, stop there."
     (delete-blank-lines)
     (set-auto-mode)))
 
+(defun git-add-current-buffer ()
+  "call 'git add [current-buffer]'"
+
+  (interactive)
+  (let* ((buffile (buffer-file-name))
+	 (output (shell-command-to-string
+		  (concat "git add " (buffer-file-name)))))
+    (message (if (not (string= output ""))
+		 output
+	       (concat "Added " buffile)))))
+
 (provide 'init-custom-defuns)
 ;;; init-custom-defuns.el ends here

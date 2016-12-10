@@ -87,6 +87,9 @@
 ;;; Recent files
 (global-set-key (kbd "C-x C-r") 'helm-projectile-recentf)
 
+;; Git add current file buffer
+(global-set-key (kbd "C-x va") 'git-add-current-buffer)
+
 ;;; Ruby Refactor
 (global-set-key (kbd "C-c C-t v") 'ruby-refactor-extract-local-variable)
 (global-set-key (kbd "C-c C-t l") 'ruby-refactor-extract-to-let)
