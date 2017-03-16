@@ -99,6 +99,11 @@
     ;;; PHP
     php-mode
 
+    ;;; Clojure
+    cider
+    clojure-mode
+    clojure-mode-extra-font-locking
+
     ;;; my-package ends here
     )
   "A list of packages to ensure are installed at launch.")
@@ -138,6 +143,8 @@
     alchemist
     flycheck-mix
     scss-mode
+    cider
+    clojure-mode
     ))
 
 ;; package loading

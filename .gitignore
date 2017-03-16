@@ -71,3 +71,4 @@ flycheck_init.el
 /bookmarks
 /url/cookies
 /var/pcache/cache
+/cider-history

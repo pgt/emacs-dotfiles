@@ -21,6 +21,7 @@
 (require 'init-view-mode)
 (require 'init-ruby)
 (require 'init-elixir)
+(require 'init-clojure)
 (require 'init-smartparens)
 (require 'init-yasnippet)
 (require 'init-dired)
