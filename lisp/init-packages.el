@@ -62,6 +62,9 @@
     atom-one-dark-theme
     atom-dark-theme
 
+    ;;; SSH
+    ssh-config-mode
+
     ;;; HTML
     rhtml-mode
 

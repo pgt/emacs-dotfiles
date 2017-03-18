@@ -20,6 +20,7 @@
 (require 'init-project-utils)
 (require 'init-view-mode)
 (require 'init-ruby)
+(require 'init-ssh)
 (require 'init-elixir)
 (require 'init-clojure)
 (require 'init-smartparens)
