@@ -26,6 +26,7 @@
     hl-anything
     company
     highlight-symbol
+    mode-icons
 
     ;;; Ruby
     rbenv
@@ -183,6 +184,7 @@
 (global-company-mode) ;; Autocomplete
 (docker-global-mode t) ;; Docker keybidings
 (alchemist-mode t) ;; Elixir
+(mode-icons-mode) ;; Icons everywhere
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
