@@ -72,3 +72,4 @@ flycheck_init.el
 /url/cookies
 /var/pcache/cache
 /cider-history
+/network-security.data
