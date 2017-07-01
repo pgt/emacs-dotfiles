@@ -38,6 +38,7 @@
 (require 'init-git-pr)
 (require 'init-sql)
 (require 'init-docker)
+(require 'init-restclient)
 
 (require 'init-appearance)
 (require 'init-keybindings)
