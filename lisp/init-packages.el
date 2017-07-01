@@ -107,6 +107,7 @@
     cider
     clojure-mode
     clojure-mode-extra-font-locking
+    parinfer
 
     ;;; my-package ends here
     )

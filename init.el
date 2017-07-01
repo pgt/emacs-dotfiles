@@ -39,6 +39,7 @@
 (require 'init-sql)
 (require 'init-docker)
 (require 'init-restclient)
+(require 'init-parinfer)
 
 (require 'init-appearance)
 (require 'init-keybindings)
