@@ -1,0 +1,33 @@
+alias .. cd .. $*
+alias ... cd ../.. $*
+alias afk /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend $*
+alias all_commands $(compgen -ac | peco) $*
+alias be bundle exec  $*
+alias bi bundle install $*
+alias branch-creator git for-each-ref --format="%(committerdate) %09 %(authorname) %09 %(refname)" | sort -k5n -k2M -k3n -k4n | grep  $*
+alias caffeine $(caffeinate -t 3600 &) $*
+alias code cd ~/code $*
+alias egrep egrep --color=auto $*
+alias emacs open -a /Applications/Emacs.app $*
+alias emptytrash sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl $*
+alias fgrep fgrep --color=auto $*
+alias flushdns dscacheutil -flushcache $*
+alias grep grep --color=auto $*
+alias gs git status $*
+alias gw1 ssh -i ~/.ssh/id_rsa_gateway _ptavares@nibbler0001.linux.locaweb.com.br $*
+alias gw2 ssh -i ~/.ssh/id_rsa_gateway _ptavares@nibbler0002.linux.locaweb.com.br $*
+alias httpdump sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*" $*
+alias ialert terminal-notifier -title "Terminal" -message "Done with task!" $*
+alias install_pg gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config $*
+alias localip ipconfig getifaddr en1 $*
+alias ls ls -GFh $*
+alias pgt-edit_last_execution fc -e : -1 | fpp -ni -c="open -a /Applications/Emacs.app" $*
+alias pgt-find-spec find ./spec -name '*.rb' | grep -v .git | peco | xargs $*
+alias pgt-project-find-file find . | grep -v .git | peco | xargs $*
+alias pgt-project-switch cd $(pgt-project-directory) $*
+alias rc bundle exec rails c $*
+alias rs bundle exec rails s $*
+alias sl ls $*
+alias sniff sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80' $*
+alias to_json json | pygmentize -l json $*
+alias webserverhere python -m SimpleHTTPServer $*
