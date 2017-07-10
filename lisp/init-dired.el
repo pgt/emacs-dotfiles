@@ -114,5 +114,8 @@ This function runs the actual AppleScript."
 ;; Mutant integration
 (add-hook 'dired-mode-hook 'mutant-dired-mode)
 
+;; All the icons integration
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
 (provide 'init-dired)
 ;;; init-dired.el ends here

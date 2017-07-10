@@ -27,6 +27,8 @@
     company
     highlight-symbol
     mode-icons
+    all-the-icons ;; Dependency from all-the-icons-dired
+    all-the-icons-dired
 
     ;;; Ruby
     rbenv
