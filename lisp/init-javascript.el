@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+;; indent js files with 2 spaces
+(setq js-indent-level 2)
+
 (add-hook 'js-mode-hook 'js2-minor-mode)
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 
