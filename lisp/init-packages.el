@@ -109,10 +109,10 @@
     cider
     clojure-mode
     clojure-mode-extra-font-locking
-    parinfer
+    parinfer)
 
     ;;; my-package ends here
-    )
+
   "A list of packages to ensure are installed at launch.")
 
 (defvar libs-to-require
