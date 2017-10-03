@@ -136,6 +136,7 @@
     anzu
     smartscan
     google-this
+    google-translate
     undo-tree
     expand-region
     recentf
