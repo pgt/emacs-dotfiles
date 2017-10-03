@@ -102,7 +102,7 @@
 (global-set-key [remap query-replace] 'anzu-query-replace)
 
 ;;; Join lines
-(global-set-key (kbd "C-?") 'join-line)
+(global-set-key (kbd "C-:") 'join-line)
 
 ;;; Buffer actions, rename and delete
 (global-set-key (kbd "C-c d") #'pgt-delete-file-and-buffer)
