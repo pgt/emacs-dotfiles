@@ -70,6 +70,7 @@
 
     ;;; HTML
     rhtml-mode
+    web-mode
 
     ;;; Javascript
     js2-mode
