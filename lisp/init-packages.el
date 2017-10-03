@@ -180,7 +180,7 @@
 (global-anzu-mode t) ;; Anzu
 (smartscan-mode 1) ;;; Smartscan
 (google-this-mode 1) ;; Google this
-(undo-tree-mode 1) ;; Undo tree
+(global-undo-tree-mode) ;; Undo tree
 (wrap-region-mode t) ;; Wrap-region
 (hl-highlight-mode 1) ;; Highlight-mode
 (global-hl-line-mode 1) ;; Highlight current line
