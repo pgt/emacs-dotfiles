@@ -39,6 +39,9 @@
 
 (global-set-key (kbd "M-L") 'helm-projectile-switch-to-buffer) ;; open buffer of this project
 
+;; This will make Emacs open horizontally when you hit C-c o in a helm
+;; buffer, actually in any place
+(setq split-width-threshold -1)
 
 (provide 'init-package-helm)
 ;;; init-package-helm.el ends here
