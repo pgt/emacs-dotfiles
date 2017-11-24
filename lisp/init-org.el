@@ -3,6 +3,40 @@
 ;;; Code:
 (require 'org)
 
+(defconst *user-org-cache-directory*
+  (path-join *user-dropbox-directory* "org")
+  "Path to user's org cache store.")
+
+(defun path-abs-buffer ()
+  "Get the current buffer absolute path."
+  (file-truename (or (buffer-file-name) default-directory)))
+
+(defun path-join (root &rest dirs)
+  "Join paths together starting at ROOT and proceeding with DIRS.
+Ex: (path-join \"/tmp\" \"a\" \"b\" \"c\") => /tmp/a/b/c"
+  (if (not dirs)
+      root
+    (apply 'path-join
+           (expand-file-name (car dirs) root)
+           (cdr dirs))))
+
+(defun getenv-or (env value)
+  "Fetch the value of ENV or, if it is not set, return VALUE."
+  (if (getenv env)
+      (getenv env)
+    value))
+
+;;; (Directories) ;;;
+(defconst *user-home-directory*
+  (getenv-or "HOME" (concat (expand-file-name "~") "/"))
+  "Path to user home directory.")
+
+(defconst *user-dropbox-directory*
+  (path-join *user-home-directory* "Dropbox")
+  "Path to Dropbox on user's machine.")
+
+(setq org-capture-directory (path-join *user-dropbox-directory* "org/captures"))
+
 (add-to-list 'load-path (expand-file-name "conf/orgmode" user-emacs-directory))
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 ;;
@@ -99,31 +133,58 @@
               ("MEETING" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
+(defun get-string-from-file (filePath)
+  "Return filePath's file content."
+  (with-temp-buffer
+    (insert-file-contents filePath)
+    (buffer-string)))
+
+;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
+(defun squiter/oc-template (file)
+  "Get org template using a FILE."
+  (get-string-from-file (path-join org-capture-directory file)))
+
 ;; Capture templates for: TODO tasks, Notes, appointments, phone calls, meetings, and org-protocol
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file "~/Dropbox/org/refile.org")
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+      `(("t" "todo" entry (file (path-join *user-org-cache-directory* "refile.org"))
+         ,(squiter/oc-template "todo.org")
+         :clock-in t
+         :clock-resume t)
 
-              ("r" "respond" entry (file "~/Dropbox/org/refile.org")
-               "* NEXT Respond to %:from on %:subject\nSCHEDULED: %t\n%U\n%a\n" :clock-in t :clock-resume t :immediate-finish t)
+        ("n" "note" entry (file (path-join *user-org-cache-directory* "refile.org"))
+         ,(squiter/oc-template "note.org")
+         :clock-in t
+         :clock-resume t)
 
-              ("n" "note" entry (file "~/Dropbox/org/refile.org")
-               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+	("j" "Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+	 "* %?\n%(oc/inc \"Things that I learned\" \"** Three things that I learn today\n\")"
+	 :clock-in t
+	 :clock-resume t)
 
-              ("j" "Journal" entry (file+datetree "~/Dropbox/org/diary.org")
-               "* %?\n%U\n" :clock-in t :clock-resume t)
+	("e" "Evening Journal" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+	 ,(squiter/oc-template "evening-journal.org")
+	 :clock-in t
+	 :clock-resume t)
 
-	      ("w" "org-protocol" entry (file "~/Dropbox/org/refile.org")
-               "* TODO Review %c\n%U\n" :immediate-finish t)
+	("w" "Weekly Review" entry (file+datetree (path-join *user-org-cache-directory* "diary.org"))
+	 ,(squiter/oc-template "weekly-review.org")
+	 :clock-in t
+	 :clock-resume t)
 
-	      ("m" "Meeting" entry (file "~/Dropbox/org/refile.org")
-               "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
+	("m" "Morning routine" entry (file+datetree (path-join *user-org-cache-directory* "morning-routine.org"))
+	 ,(squiter/oc-template "morning-routine-template.org")
+	 :clock-in t
+	 :clock-resume t)
 
-	      ("p" "Phone call" entry (file "~/Dropbox/org/refile.org")
-               "* PHONE %? :PHONE:\n%U" :clock-in t :clock-resume t)
+	("s" "Code Snippet" entry
+	 (file (path-join *user-org-cache-directory* "snippets.org"))
+	 ;; Prompt for tag and language
+	 "* %? :NOTE:\t\n%U\n#+BEGIN_SRC %(eval custom/org-mode-memory)\n%c\n#+END_SRC")
 
-	      ("h" "Habit" entry (file "~/Dropbox/org/refile.org")
-               "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+	("h" "Habit" entry (file (path-join *user-org-cache-directory* "refile.org"))
+	 ,(squiter/oc-template "habit.org")
+	 :clock-in t
+	 :clock-resume t)))
 
 ;; Org bullets
 (require 'org-bullets)
