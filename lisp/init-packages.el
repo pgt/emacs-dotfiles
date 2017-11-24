@@ -72,6 +72,9 @@
     rhtml-mode
     web-mode
 
+    ;;; HAML
+    haml-mode
+
     ;;; Javascript
     js2-mode
     js2-refactor
