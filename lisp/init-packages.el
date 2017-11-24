@@ -81,6 +81,9 @@
     tern ;;; PS: it's necessary install tern (npm install -g tern)
     tern-auto-complete
 
+    ;;; Coffeescript
+    coffee-mode
+
     ;;; Git tools
     magit
     git-timemachine ;; Travel for versions of a file on git
