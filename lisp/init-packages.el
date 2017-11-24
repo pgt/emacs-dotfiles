@@ -112,6 +112,11 @@
     ;;; PHP
     php-mode
 
+    ;;; Java/Android
+    android-mode
+    flycheck-kotlin
+    kotlin-mode
+
     ;;; Clojure
     cider
     clojure-mode
