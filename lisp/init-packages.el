@@ -80,6 +80,7 @@
     js2-refactor
     tern ;;; PS: it's necessary install tern (npm install -g tern)
     tern-auto-complete
+    rjsx-mode
 
     ;;; Coffeescript
     coffee-mode
