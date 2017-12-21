@@ -18,6 +18,7 @@
     projectile ;; Project interaction
     helm-projectile ;; Navigation for Projectile
     google-this
+    google-translate
     diminish
     paredit ;; TODO
     undo-tree
