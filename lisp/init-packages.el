@@ -119,6 +119,9 @@
     flycheck-kotlin
     kotlin-mode
 
+    ;;; Swift
+    swift-mode
+
     ;;; Clojure
     cider
     clojure-mode
