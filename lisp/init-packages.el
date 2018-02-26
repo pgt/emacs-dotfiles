@@ -110,6 +110,7 @@
 
     ;;; Frontend
     scss-mode
+    sass-mode
 
     ;;; PHP
     php-mode
