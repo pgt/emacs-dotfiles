@@ -28,6 +28,8 @@
 
 (add-hook 'jsx-mode-hook (lambda () (tern-mode t))) ;; Using Tern with JSX mode
 
+(add-to-list 'magic-mode-alist '("import React.+" . rjsx-mode))
+
 (defun delete-tern-process ()
   "Fix error when tern does not auto refresh"
   (interactive)
