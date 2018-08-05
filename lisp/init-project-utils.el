@@ -32,18 +32,18 @@
   "Lists all projects given project sources."
   (cl-labels ((dir-to-files (dir)
                    (if (file-exists-p dir)
-                    (directory-files dir t directory-files-no-dot-files-regexp))))
+                    (directory-files dir t directory-files-no-dot-files-regexp)))
            (flatten (x)
                  (cond ((null x) nil)
-                    ((listp x) (append (car x) (flatten (cdr x))))))
+                    ((listp x) (append (car x) (flatten (cdr x)))))))
     (progn (flatten (mapcar #'dir-to-files  project-sources)))))
 
 (defun rr-open-project (actions path)
   "Do nothing with ACTIONS. Open project given PATH."
   ;; TODO: Add default file get.
-  (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path)))
-              (expand-file-name "Gemfile" path))
-            path)
+  (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path))
+                          (expand-file-name "Gemfile" path)
+                        path)))
     (find-file (find-default-file))))
 
 ;; =====================================
