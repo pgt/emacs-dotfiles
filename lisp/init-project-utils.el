@@ -32,23 +32,28 @@
   "Lists all projects given project sources."
   (cl-labels ((dir-to-files (dir)
                    (if (file-exists-p dir)
-                    (directory-files dir t directory-files-no-dot-files-regexp)))
+                    (directory-files dir t directory-files-no-dot-files-regexp))))
            (flatten (x)
                  (cond ((null x) nil)
-                    ((listp x) (append (car x) (flatten (cdr x)))))))
+                    ((listp x) (append (car x) (flatten (cdr x))))))
     (progn (flatten (mapcar #'dir-to-files  project-sources)))))
 
 (defun rr-open-project (actions path)
   "Do nothing with ACTIONS. Open project given PATH."
   ;; TODO: Add default file get.
-  (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path))
-                          (expand-file-name "Gemfile" path)
-                        path)))
+  (cl-flet ((find-default-file () (if (file-exists-p (expand-file-name "Gemfile" path)))
+              (expand-file-name "Gemfile" path))
+            path)
     (find-file (find-default-file))))
 
 ;; =====================================
 ;; -- extensions to projectile keymap --
 ;; =====================================
+
+;; The new projectile changes this keymap to C-c C-p, so to keep my
+;; old keys I made this
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 (let ((map projectile-command-map))
   ;; general utils
   (define-key map "n" 'rr-show-file-name)
