@@ -123,6 +123,10 @@
     ;;; Swift
     swift-mode
 
+    ;;; Rust
+    rust-mode
+    racer
+
     ;;; Clojure
     cider
     clojure-mode
