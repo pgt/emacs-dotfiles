@@ -82,6 +82,7 @@
     tern ;;; PS: it's necessary install tern (npm install -g tern)
     tern-auto-complete
     rjsx-mode
+    indium ;;; IDE JS
 
     ;;; Coffeescript
     coffee-mode
@@ -126,6 +127,11 @@
     ;;; Rust
     rust-mode
     racer
+    cargo
+    flycheck-rust
+
+    ;;; Protobuffer
+    protobuf-mode
 
     ;;; Clojure
     cider
@@ -175,6 +181,7 @@
     scss-mode
     cider
     clojure-mode
+    indium
     ))
 
 ;; package loading

@@ -17,5 +17,19 @@
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
+;;; Rustfmt
+(defun my-rust-mode-hooks ()
+  (add-hook 'before-save-hook 'rust-format-buffer))
+
+(add-hook 'rust-mode-hook 'my-rust-mode-hooks)
+
+(define-key rust-mode-map (kbd "C-c i") #'rust-format-buffer)
+
+;;; Cargo
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+
+;;; Flycheck
+(add-hook 'rust-mode-hook 'flycheck-rust-setup)
+
 (provide 'init-rust)
 ;;; init-rust.el ends here
