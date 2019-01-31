@@ -5,9 +5,6 @@
 (require 'git-gutter)
 (global-git-gutter-mode t)
 
-;; If you would like to use git-gutter.el and linum-mode
-(git-gutter:linum-setup)
-
 ;; If you enable git-gutter-mode for some modes
 (add-hook 'ruby-mode-hook 'git-gutter-mode)
 
