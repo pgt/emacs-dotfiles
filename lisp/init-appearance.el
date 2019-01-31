@@ -19,10 +19,10 @@
  )
 
 ;;; theme
-(load-theme 'atom-dark t)
+(load-theme 'solarized-dark t)
 
 ;; Set font
-(set-default-font "Source Code Pro")
+(set-default-font "B612 Mono")
 
 ;; Cursor type
 (setq default-cursor-type 'bar)
