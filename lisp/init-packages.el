@@ -92,7 +92,7 @@
     git-timemachine ;; Travel for versions of a file on git
     git-gutter
     diff-hl
-    magit-gh-pulls
+    ;; magit-gh-pulls
 
     ;;; Markdown
     markdown-mode
@@ -107,7 +107,6 @@
     ;;; Elixir
     elixir-mode
     alchemist
-    flycheck-mix
 
     ;;; Frontend
     scss-mode
@@ -132,6 +131,13 @@
 
     ;;; Protobuffer
     protobuf-mode
+
+    ;;; Dart/Flutter
+    dart-mode
+    flutter
+
+    ;;; Groovy
+    groovy-mode
 
     ;;; Clojure
     cider
@@ -174,10 +180,7 @@
     js2-refactor
     mutant
     dockerfile-mode
-    magit-gh-pulls
     elixir-mode
-    alchemist
-    flycheck-mix
     scss-mode
     cider
     clojure-mode
@@ -215,8 +218,8 @@
 (delete-selection-mode 1) ;; Delete on selected text
 (winner-mode 1) ;; Undo and Redo window configuration
 (global-company-mode) ;; Autocomplete
-(alchemist-mode t) ;; Elixir
 (mode-icons-mode) ;; Icons everywhere
+(alchemist-mode t) ;; Elixir
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

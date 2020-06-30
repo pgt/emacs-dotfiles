@@ -2,11 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Flycheck!
-(flycheck-mix-setup)
-
 ;;; Enable alchemist
-(add-hook 'elixir-mode-hook 'alchemist-mode)
+(add-hook 'elixir-mode-hook 'alchemist-mode-hook)
+
+(setq alchemist-mix-command "~/.asdf/shims/mix")
+(setq alchemist-iex-program-name "~/.asdf/shims/iex") ;; default: iex
+(setq alchemist-execute-command "~/.asdf/shims/elixir") ;; default: elixir
+(setq alchemist-compile-command "~/.asdf/shims/elixirc") ;; default: elixirc
 
 ;; Keybindings
 (define-key alchemist-mode-map (kbd "C-c , t") 'alchemist-project-toggle-file-and-tests)
@@ -18,7 +20,6 @@
 (define-key alchemist-mode-map (kbd "C-c , c") 'alchemist-mix-compile)
 (define-key alchemist-mode-map (kbd "C-c ?") 'alchemist-help-search-at-point)
 
-
 ;; To use ruby end mode
 (add-to-list 'elixir-mode-hook
              (defun auto-activate-ruby-end-mode-for-elixir-mode ()
@@ -26,6 +27,10 @@
                     "\\(?:^\\|\\s-+\\)\\(?:do\\)")
                (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
                (ruby-end-mode +1)))
+
+;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.
+(add-hook 'elixir-mode-hook
+          (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
 (provide 'init-elixir)
 ;;; init-elixir.el ends here

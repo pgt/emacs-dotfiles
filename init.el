@@ -51,23 +51,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosaves/\\1" t))))
- '(custom-safe-themes
-   (quote
-    ("75d807376ac43e6ac6ae3892f1f377a4a3ad2eb70b14223b4ed0355e62116814" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a655f17225ad0a7190c79602593563191b7640ddebbb8c8fbd80c9d82faff1c6" "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" default)))
- '(initial-buffer-choice t)
- '(package-selected-packages
-   (quote
-    (indium gradle-mode jira-markup-mode applescript-mode sass-mode swift-mode yaml-mode wrap-region wgrep web-mode undo-tree tern-auto-complete swiper ssh-config-mode solarized-theme smartscan smartparens scss-mode rubocop rspec-mode rjsx-mode rhtml-mode restclient rbenv php-mode parinfer paredit org-bullets mutant mode-icons markdown-mode magit-gh-pulls kotlin-mode js2-refactor ido-vertical-mode hl-anything highlight-symbol helm-projectile helm-ag haml-mode gruvbox-theme gotest google-translate google-this git-timemachine git-gutter fuzzy font-lock+ flycheck-mix flycheck-kotlin expand-region dockerfile-mode docker diminish diff-hl company-go coffee-mode clojure-mode-extra-font-locking cider calfw-gcal calfw bundler auto-package-update atom-one-dark-theme atom-dark-theme anzu android-mode all-the-icons-dired alchemist ag))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-(put 'set-goal-column 'disabled nil)

@@ -20,7 +20,7 @@
 (global-set-key (kbd "C-c y") 'magit-status)
 
 ;; Github integrations of Pull requests
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;;(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 ;; Use Ctrl-TAB to change buffer
 (add-hook 'magit-status-mode-hook
