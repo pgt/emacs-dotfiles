@@ -22,7 +22,7 @@
 (load-theme 'solarized-dark t)
 
 ;; Set font
-(set-default-font "B612 Mono")
+(set-default-font "Monaco")
 
 ;; Cursor type
 (setq default-cursor-type 'bar)
@@ -35,7 +35,7 @@
 (defun custom/use-smaller-font ()
   "Make font smaller for current buffer."
   (interactive)
-  (setq buffer-face-mode-face '(:family "Inconsolata" :height 120))
+  (setq buffer-face-mode-face '(:family "Source Code Pro" :height 120))
   (buffer-face-mode))
 
 ;;; When using the compilation-mode, for example on rspec-mode use a
