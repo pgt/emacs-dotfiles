@@ -139,6 +139,9 @@
     ;;; Groovy
     groovy-mode
 
+    ;;; Fountain
+    fountain-mode
+
     ;;; Clojure
     cider
     clojure-mode
@@ -185,6 +188,7 @@
     cider
     clojure-mode
     indium
+    fountain-mode
     ))
 
 ;; package loading
