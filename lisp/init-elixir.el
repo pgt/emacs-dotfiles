@@ -32,5 +32,12 @@
 (add-hook 'elixir-mode-hook
           (lambda () (add-hook 'before-save-hook 'elixir-format nil t)))
 
+;; Flycheck configs
+(eval-after-load 'flycheck
+  '(flycheck-credo-setup))
+(add-hook 'elixir-mode-hook 'flycheck-mode)
+
+(setq flycheck-elixir-credo-strict t)
+
 (provide 'init-elixir)
 ;;; init-elixir.el ends here

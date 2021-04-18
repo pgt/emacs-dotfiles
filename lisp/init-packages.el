@@ -107,6 +107,7 @@
     ;;; Elixir
     elixir-mode
     alchemist
+    flycheck-credo
 
     ;;; Frontend
     scss-mode
