@@ -4,24 +4,23 @@
 (require 'package)
 (package-initialize)
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 
 (defvar my-packages
   '(
     ;;; General
     auto-package-update
-    s ;; TODO: need search
+    s ;; The long lost Emacs string manipulation library.
     flycheck ;; Syntax checking for over 60 programming languages
     smartscan ;; Move between symbols (* of vim)
     helm ;; Help in navigation
     projectile ;; Project interaction
     helm-projectile ;; Navigation for Projectile
     google-this
-    google-translate
     diminish
     paredit ;; TODO
-    undo-tree
+    ;; undo-tree
     restclient
     expand-region
     hl-anything
@@ -38,7 +37,6 @@
     rspec-mode
     bundler
     smartparens
-    mutant
 
     ;;; Go-lang
     go-mode
@@ -79,30 +77,18 @@
     ;;; Javascript
     js2-mode
     js2-refactor
-    tern ;;; PS: it's necessary install tern (npm install -g tern)
-    tern-auto-complete
-    rjsx-mode
-    indium ;;; IDE JS
-
-    ;;; Coffeescript
-    coffee-mode
 
     ;;; Git tools
     magit
     git-timemachine ;; Travel for versions of a file on git
     git-gutter
     diff-hl
-    ;; magit-gh-pulls
 
     ;;; Markdown
     markdown-mode
 
     ;;; Org
     org-bullets
-
-    ;;; Docker
-    dockerfile-mode
-    docker
 
     ;;; Elixir
     elixir-mode
@@ -147,7 +133,7 @@
     cider
     clojure-mode
     clojure-mode-extra-font-locking
-    parinfer)
+    )
 
     ;;; my-package ends here
 
@@ -173,23 +159,14 @@
     anzu
     smartscan
     google-this
-    google-translate
-    undo-tree
+    ;;undo-tree
     expand-region
     recentf
     saveplace
     wgrep
     highlight-symbol
     flycheck
-    js2-refactor
-    mutant
-    dockerfile-mode
     elixir-mode
-    scss-mode
-    cider
-    clojure-mode
-    indium
-    fountain-mode
     ))
 
 ;; package loading
@@ -216,7 +193,7 @@
 (global-anzu-mode t) ;; Anzu
 (smartscan-mode 1) ;;; Smartscan
 (google-this-mode 1) ;; Google this
-(global-undo-tree-mode) ;; Undo tree
+;;(global-undo-tree-mode) ;; Undo tree
 (wrap-region-mode t) ;; Wrap-region
 (hl-highlight-mode 1) ;; Highlight-mode
 (global-hl-line-mode 1) ;; Highlight current line
@@ -224,7 +201,17 @@
 (winner-mode 1) ;; Undo and Redo window configuration
 (global-company-mode) ;; Autocomplete
 (mode-icons-mode) ;; Icons everywhere
-(alchemist-mode t) ;; Elixir
+
+(require 'cl)
+(let ((pkg-list '(use-package
+		          s
+		          dash
+		          editorconfig
+                  company)))
+  (package-initialize)
+  (when-let ((to-install (map-filter (lambda (pkg _) (not (package-installed-p pkg))) pkg-list)))
+    (package-refresh-contents)
+    (mapc (lambda (pkg) (package-install pkg)) pkg-list)))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

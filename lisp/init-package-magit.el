@@ -22,9 +22,5 @@
 ;; Github integrations of Pull requests
 ;;(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
-;; Use Ctrl-TAB to change buffer
-(add-hook 'magit-status-mode-hook
-	  (lambda () (local-set-key [(control tab)] 'other-window)))
-
 (provide 'init-package-magit)
 ;;; init-package-magit.el ends here

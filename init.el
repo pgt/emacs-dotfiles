@@ -6,8 +6,6 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(package-initialize)
-
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (require 'init-packages)
@@ -36,11 +34,10 @@
 (require 'init-dired)
 (require 'init-javascript)
 (require 'init-eshell)
-(require 'init-git-pr)
 (require 'init-sql)
 (require 'init-docker)
 (require 'init-restclient)
-(require 'init-parinfer)
+;;(require 'init-parinfer)
 (require 'init-web-mode)
 
 (require 'init-appearance)

@@ -3,22 +3,22 @@
 ;;; Code:
 
 ;;; Enable alchemist
-(add-hook 'elixir-mode-hook 'alchemist-mode-hook)
+;; (add-hook 'elixir-mode-hook 'alchemist-mode-hook)
 
-(setq alchemist-mix-command "~/.asdf/shims/mix")
-(setq alchemist-iex-program-name "~/.asdf/shims/iex") ;; default: iex
-(setq alchemist-execute-command "~/.asdf/shims/elixir") ;; default: elixir
-(setq alchemist-compile-command "~/.asdf/shims/elixirc") ;; default: elixirc
+;; (setq alchemist-mix-command "~/.asdf/shims/mix")
+;; (setq alchemist-iex-program-name "~/.asdf/shims/iex") ;; default: iex
+;; (setq alchemist-execute-command "~/.asdf/shims/elixir") ;; default: elixir
+;; (setq alchemist-compile-command "~/.asdf/shims/elixirc") ;; default: elixirc
 
 ;; Keybindings
-(define-key alchemist-mode-map (kbd "C-c , t") 'alchemist-project-toggle-file-and-tests)
-(define-key alchemist-mode-map (kbd "C-c , y") 'alchemist-project-toggle-file-and-tests-other-window)
-(define-key alchemist-mode-map (kbd "C-c , a") 'alchemist-mix-test)
-(define-key alchemist-mode-map (kbd "C-c , s") 'alchemist-mix-test-at-point)
-(define-key alchemist-mode-map (kbd "C-c , v") 'alchemist-project-run-tests-for-current-file)
-(define-key alchemist-mode-map (kbd "C-c , r") 'alchemist-mix-rerun-last-test)
-(define-key alchemist-mode-map (kbd "C-c , c") 'alchemist-mix-compile)
-(define-key alchemist-mode-map (kbd "C-c ?") 'alchemist-help-search-at-point)
+;; (define-key alchemist-mode-map (kbd "C-c , t") 'alchemist-project-toggle-file-and-tests)
+;; (define-key alchemist-mode-map (kbd "C-c , y") 'alchemist-project-toggle-file-and-tests-other-window)
+;; (define-key alchemist-mode-map (kbd "C-c , a") 'alchemist-mix-test)
+;; (define-key alchemist-mode-map (kbd "C-c , s") 'alchemist-mix-test-at-point)
+;; (define-key alchemist-mode-map (kbd "C-c , v") 'alchemist-project-run-tests-for-current-file)
+;; (define-key alchemist-mode-map (kbd "C-c , r") 'alchemist-mix-rerun-last-test)
+;; (define-key alchemist-mode-map (kbd "C-c , c") 'alchemist-mix-compile)
+;; (define-key alchemist-mode-map (kbd "C-c ?") 'alchemist-help-search-at-point)
 
 ;; To use ruby end mode
 (add-to-list 'elixir-mode-hook
