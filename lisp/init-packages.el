@@ -7,146 +7,176 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 
-(defvar my-packages
-  '(
-    ;;; General
-    auto-package-update
-    s ;; The long lost Emacs string manipulation library.
-    flycheck ;; Syntax checking for over 60 programming languages
-    smartscan ;; Move between symbols (* of vim)
-    helm ;; Help in navigation
-    projectile ;; Project interaction
-    helm-projectile ;; Navigation for Projectile
-    google-this
-    diminish
-    paredit ;; TODO
-    ;; undo-tree
-    restclient
-    expand-region
-    hl-anything
-    company
-    highlight-symbol
-    mode-icons
-    all-the-icons ;; Dependency from all-the-icons-dired
-    all-the-icons-dired
+;; upload straight: next-generation, purely functional package manager
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-    ;;; Ruby
-    rbenv
-    inf-ruby
-    rubocop
-    rspec-mode
-    bundler
-    smartparens
+(setq package-enable-at-startup nil)
 
-    ;;; Go-lang
-    go-mode
-    company-go
-    gotest
+;; use-package initialization
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package)
+  (require 'use-package))
 
-    ;;; Search
-    ag
-    anzu ;; Better search mode of file with syntax highlight
-    wgrep
-    swiper
+(use-package use-package-ensure-system-package
+  :ensure t)
 
-    ido-vertical-mode ;; Easy navigation on commands
-    fuzzy ;; Completion
-    helm-ag ;; Help-ag search
-    wrap-region ;; Highlight the selected region
+(setq use-package-always-ensure t)
+(setq use-package-compute-statistics t)
 
-    ;;; YAML
-    yaml-mode ;; Help on YAML editing
+;;
+;; A list of packages to ensure are installed at launch
+;;
+;; General
+(use-package s)
+(use-package flycheck)
+(use-package smartscan)
+(use-package helm)
+(use-package projectile)
+(use-package helm-projectile)
+(use-package google-this)
+(use-package diminish)
+(use-package paredit)
+(use-package undo-tree)
+(use-package restclient)
+(use-package expand-region)
+(use-package hl-anything)
+(use-package company)
+(use-package highlight-symbol)
 
-    ;;; UI
-    popup
-    gruvbox-theme ;; My theme
-    solarized-theme ;; My theme
-    atom-one-dark-theme
-    atom-dark-theme
+;; Ruby
+(use-package rbenv)
+(use-package inf-ruby)
+(use-package rubocop)
+(use-package rspec-mode)
+(use-package bundler)
+(use-package smartparens)
 
-    ;;; SSH
-    ssh-config-mode
+;; Go-lang
+(use-package go-mode)
+(use-package company-go)
+(use-package gotest)
 
-    ;;; HTML
-    rhtml-mode
-    web-mode
+;; Search
+(use-package ag)
+(use-package anzu)
+(use-package wgrep)
+(use-package swiper)
 
-    ;;; HAML
-    haml-mode
+(use-package ido-vertical-mode)
+(use-package fuzzy)
+(use-package helm-ag)
+(use-package wrap-region)
 
-    ;;; Javascript
-    js2-mode
-    js2-refactor
+;; YAML
+(use-package yaml-mode)
 
-    ;;; Git tools
-    magit
-    git-timemachine ;; Travel for versions of a file on git
-    git-gutter
-    diff-hl
+;; UI
+(use-package popup)
+(use-package gruvbox-theme)
+(use-package solarized-theme)
+(use-package atom-one-dark-theme)
+(use-package atom-dark-theme)
 
-    ;;; Markdown
-    markdown-mode
+;; SSH
+(use-package ssh-config-mode)
 
-    ;;; Org
-    org-bullets
+;; HTML
+(use-package rhtml-mode)
+(use-package web-mode)
 
-    ;;; Elixir
-    elixir-mode
-    alchemist
-    flycheck-credo
+;; HAML
+(use-package haml-mode)
 
-    ;;; Frontend
-    scss-mode
-    sass-mode
+;; Javascript
+(use-package js2-mode)
+(use-package js2-refactor)
 
-    ;;; PHP
-    php-mode
+;; Git tools
+(use-package magit)
+(use-package git-timemachine)
+(use-package git-gutter)
+(use-package diff-hl)
 
-    ;;; Java/Android
-    android-mode
-    flycheck-kotlin
-    kotlin-mode
+;; Markdown
+(use-package markdown-mode)
 
-    ;;; Swift
-    swift-mode
+;; Org
+(use-package org-bullets)
 
-    ;;; Rust
-    rust-mode
-    racer
-    cargo
-    flycheck-rust
+;; Elixir
+(use-package elixir-mode)
+(use-package alchemist)
+(use-package flycheck-credo)
 
-    ;;; Protobuffer
-    protobuf-mode
+;; Frontend
+(use-package scss-mode)
+(use-package sass-mode)
 
-    ;;; Dart/Flutter
-    dart-mode
-    flutter
+;; PHP
+(use-package php-mode)
 
-    ;;; Groovy
-    groovy-mode
+;; Java/Android
+(use-package android-mode)
+(use-package flycheck-kotlin)
+(use-package kotlin-mode)
 
-    ;;; Fountain
-    fountain-mode
+;; Swift
+(use-package swift-mode)
 
-    ;;; Clojure
-    cider
-    clojure-mode
-    clojure-mode-extra-font-locking
-    )
+;; Rust
+(use-package rust-mode)
+(use-package racer)
+(use-package cargo)
+(use-package flycheck-rust)
 
-    ;;; my-package ends here
+;; Protobuffer
+(use-package protobuf-mode)
 
-  "A list of packages to ensure are installed at launch.")
+;; Dart/Flutter
+(use-package dart-mode)
+(use-package flutter)
 
+;; Groovy
+(use-package groovy-mode)
+
+;; Fountain
+(use-package fountain-mode)
+
+;; Clojure
+(use-package cider)
+(use-package clojure-mode)
+(use-package clojure-mode-extra-font-locking)
+
+;; Undo tree
+(use-package undo-tree
+  :ensure t
+  :init
+  (global-undo-tree-mode 1))
+
+(straight-use-package 'gptel)
+
+;; To require
 (defvar libs-to-require
   '(cl
     uniquify
     linum
-    paredit
     whitespace
     wrap-region
-    ffap ;; This is for go directly in files
     recentf
     saveplace
     ansi-color
@@ -156,62 +186,11 @@
     sgml-mode
     nxml-mode
     yaml-mode
-    anzu
-    smartscan
-    google-this
-    ;;undo-tree
-    expand-region
-    recentf
-    saveplace
-    wgrep
-    highlight-symbol
-    flycheck
-    elixir-mode
     ))
-
-;; package loading
-(setq packaged-contents-refreshed-p nil)
-(dolist (p my-packages)
-  (when (not (package-installed-p p))
-    (condition-case ex
-     (package-install p)
-      ('error (if packaged-contents-refreshed-p
-            (error ex)
-          (package-refresh-contents)
-          (setq packaged-contents-refreshed-p t)
-          (package-install p))))))
 
 ;; vendor loading
 (dolist (lib libs-to-require)
   (require lib))
-
-;; Automagically updating packages
-(require 'auto-package-update)
-(auto-package-update-maybe)
-
-;;; Enabling packages
-(global-anzu-mode t) ;; Anzu
-(smartscan-mode 1) ;;; Smartscan
-(google-this-mode 1) ;; Google this
-;;(global-undo-tree-mode) ;; Undo tree
-(wrap-region-mode t) ;; Wrap-region
-(hl-highlight-mode 1) ;; Highlight-mode
-(global-hl-line-mode 1) ;; Highlight current line
-(delete-selection-mode 1) ;; Delete on selected text
-(winner-mode 1) ;; Undo and Redo window configuration
-(global-company-mode) ;; Autocomplete
-(mode-icons-mode) ;; Icons everywhere
-
-(require 'cl)
-(let ((pkg-list '(use-package
-		          s
-		          dash
-		          editorconfig
-                  company)))
-  (package-initialize)
-  (when-let ((to-install (map-filter (lambda (pkg _) (not (package-installed-p pkg))) pkg-list)))
-    (package-refresh-contents)
-    (mapc (lambda (pkg) (package-install pkg)) pkg-list)))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here

@@ -89,10 +89,6 @@
 ;; This for open all files in the current emacs section
 (setq ns-pop-up-frames nil)
 
-;;; TODO: Put this in a frontend file or CSS file
-(autoload 'scss-mode "scss-mode")
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-
 (defun squiter/get-window-name ()
   "Get a project name or buffer name."
   (if (projectile-project-p)

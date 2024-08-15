@@ -73,3 +73,4 @@ flycheck_init.el
 /var/pcache/cache
 /cider-history
 /network-security.data
+/straight/
