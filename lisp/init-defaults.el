@@ -99,5 +99,8 @@
       '("emacs@"
         (:eval (squiter/get-window-name))))
 
+;; Delete text when selected and start typing
+(delete-selection-mode 1)
+
 (provide 'init-defaults)
 ;;; init-defaults.el ends here

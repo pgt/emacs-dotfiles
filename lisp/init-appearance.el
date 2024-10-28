@@ -23,7 +23,7 @@
   (lambda-themes-set-variable-pitch t)
   :config
   ;; load preferred theme
-  (load-theme 'lambda-light))
+  (load-theme 'solarized-dark))
 
 (use-package lambda-line
   :straight (:type git :host github :repo "lambda-emacs/lambda-line")
@@ -98,7 +98,7 @@
 (defun custom/use-smaller-font ()
   "Make font smaller for current buffer."
   (interactive)
-  (setq buffer-face-mode-face '(:family "Source Code Pro" :height 120))
+  (setq buffer-face-mode-face '(:family "ClockFaceRect" :height 140))
   (buffer-face-mode))
 
 ;;; When using the compilation-mode, for example on rspec-mode use a

@@ -294,14 +294,14 @@ point reaches the beginning or end of the buffer, stop there."
       (setq class (replace-regexp-in-string (car rule) (cdr rule) class nil t)))
     class))
 
-(defun custom/run-mutant-from-dired ()
-  "Run mutant over all marked files."
-  (interactive)
-  (let* ((file-names (dired-get-marked-files))
-         (class-names (mapcar 'custom/class-from-file-name file-names))
-         (joined-classes (mapconcat 'identity class-names " "))
-	 (joined-names (mapconcat 'identity file-names " ")))
-    (compile (concat "bundle exec mutant -r " joined-names " --use rspec -j 1 " joined-classes))))
+;; (defun custom/run-mutant-from-dired ()
+;;   "Run mutant over all marked files."
+;;   (interactive)
+;;   (let* ((file-names (dired-get-marked-files))
+;;          (class-names (mapcar 'custom/class-from-file-name file-names))
+;;          (joined-classes (mapconcat 'identity class-names " "))
+;; 	 (joined-names (mapconcat 'identity file-names " ")))
+;;     (compile (concat "bundle exec mutant -r " joined-names " --use rspec -j 1 " joined-classes))))
 
 (defun close-all-buffers ()
   "Close all buffers!"
