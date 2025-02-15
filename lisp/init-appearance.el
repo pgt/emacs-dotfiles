@@ -23,7 +23,7 @@
   (lambda-themes-set-variable-pitch t)
   :config
   ;; load preferred theme
-  (load-theme 'solarized-dark))
+  (load-theme 'atom-dark :no-confirm))
 
 (use-package lambda-line
   :straight (:type git :host github :repo "lambda-emacs/lambda-line")
@@ -57,7 +57,7 @@
 (use-package frame
   :straight (:type built-in)
   :custom
-  (window-divider-default-right-width 12)
+  (window-divider-default-right-width 1)
   (window-divider-default-bottom-width 1)
   (window-divider-default-places 'right-only)
   (window-divider-mode t))
@@ -71,7 +71,7 @@
   :config
   (setq-default default-frame-alist
                 (append (list
-                '(font . "SF Mono:style=medium:size=15") ;; NOTE: substitute whatever font you prefer here
+                '(font . "SF Mono:style=medium:size=13") ;; NOTE: substitute whatever font you prefer here
                 '(internal-border-width . 20)
                 '(left-fringe    . 0)
                 '(right-fringe   . 0)
@@ -98,7 +98,7 @@
 (defun custom/use-smaller-font ()
   "Make font smaller for current buffer."
   (interactive)
-  (setq buffer-face-mode-face '(:family "ClockFaceRect" :height 140))
+  (setq buffer-face-mode-face '(:family "ClockFaceRect" :height 120))
   (buffer-face-mode))
 
 ;;; When using the compilation-mode, for example on rspec-mode use a

@@ -10,10 +10,7 @@
 (setq compilation-scroll-output t)
 
 ;;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-;;; Rubocop
-(add-hook 'ruby-mode-hook 'rubocop-mode)
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Ruby-mode :: Dont add utf-8 coding to files
 (setq ruby-insert-encoding-magic-comment nil)

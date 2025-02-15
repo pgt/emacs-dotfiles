@@ -27,10 +27,6 @@
 (load "$GOPATH/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
 (add-hook 'go-mode-hook 'go-oracle-mode)
 
-;;; Flymake
-;;; TODO: I will use this or flycheck? https://github.com/dougm/goflymake, If so, I need to add on dot-files the goflymake package
-(add-to-list 'load-path "$GOPATH/src/github.com/dougm/goflymake")
-(require 'go-flymake')
 
 ;;; Company-mode - autocomplete
 (add-hook 'go-mode-hook 'company-mode)

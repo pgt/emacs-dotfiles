@@ -1,4 +1,4 @@
-;;; init-package-swiper.el --
+;; init-package-swiper.el --
 ;;; Commentary:
 ;;; Code:
 

@@ -74,3 +74,9 @@ flycheck_init.el
 /cider-history
 /network-security.data
 /straight/
+/history
+/newsticker/
+/projects
+.lsp-session-v1
+/trasient/history.el
+/.cache/

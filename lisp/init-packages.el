@@ -32,39 +32,31 @@
   (package-install 'use-package)
   (require 'use-package))
 
-(use-package use-package-ensure-system-package
-  :ensure t)
+; (use-package use-package-ensure-system-package
+;   :ensure t)
 
-(setq use-package-always-ensure t)
-(setq use-package-compute-statistics t)
+; (setq use-package-always-ensure t)
+; (setq use-package-compute-statistics t)
 
 ;;
 ;; A list of packages to ensure are installed at launch
 ;;
 ;; General
 (use-package s)
-(use-package flycheck)
 (use-package smartscan)
 (use-package helm)
 (use-package projectile)
-(use-package helm-projectile)
 (use-package google-this)
-(use-package diminish)
 (use-package paredit)
 (use-package undo-tree)
 (use-package restclient)
 (use-package expand-region)
-(use-package hl-anything)
-(use-package company)
-(use-package highlight-symbol)
 
 ;; Ruby
 (use-package rbenv)
 (use-package inf-ruby)
-(use-package rubocop)
 (use-package rspec-mode)
 (use-package bundler)
-(use-package smartparens)
 
 ;; Go-lang
 (use-package go-mode)
@@ -74,13 +66,7 @@
 ;; Search
 (use-package ag)
 (use-package anzu)
-(use-package wgrep)
 (use-package swiper)
-
-(use-package ido-vertical-mode)
-(use-package fuzzy)
-(use-package helm-ag)
-(use-package wrap-region)
 
 ;; YAML
 (use-package yaml-mode)
@@ -121,7 +107,6 @@
 ;; Elixir
 (use-package elixir-mode)
 (use-package alchemist)
-(use-package flycheck-credo)
 
 ;; Frontend
 (use-package scss-mode)
@@ -132,7 +117,6 @@
 
 ;; Java/Android
 (use-package android-mode)
-(use-package flycheck-kotlin)
 (use-package kotlin-mode)
 
 ;; Swift
@@ -142,7 +126,6 @@
 (use-package rust-mode)
 (use-package racer)
 (use-package cargo)
-(use-package flycheck-rust)
 
 ;; Protobuffer
 (use-package protobuf-mode)
@@ -156,6 +139,8 @@
 
 ;; Fountain
 (use-package fountain-mode)
+
+; (use-package diminish)
 
 ;; Clojure
 (use-package cider)
@@ -176,7 +161,6 @@
     uniquify
     linum
     whitespace
-    wrap-region
     recentf
     saveplace
     ansi-color

@@ -1,7 +1,7 @@
-;; ;;; init-lsp.el --- LSP Config File
-;; ;;; Commentary:
-;; ;;; Code:
-;; ;;
+;;; init-lsp.el --- LSP Config File
+;;; Commentary:
+;;; Code:
+;;
 ;; (use-package lsp-mode
 ;;   :init
 ;;   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
@@ -13,5 +13,5 @@
 
 ;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
-;; (provide 'init-lsp)
-;; ;;; init-lsp.el ends here
+(provide 'init-lsp)
+;;; init-lsp.el ends here

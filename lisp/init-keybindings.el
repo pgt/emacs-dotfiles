@@ -76,7 +76,7 @@
 (define-key dired-mode-map (kbd "e") 'wdired-change-to-wdired-mode)
 
 ;; Open project
-(global-set-key (kbd "s-o") 'helm-rr-open-project)
+(global-set-key (kbd "s-o") 'projectile-switch-project)
 
 ;; Eval-buffer
 (define-key emacs-lisp-mode-map (kbd "C-c C-v") 'eval-buffer)

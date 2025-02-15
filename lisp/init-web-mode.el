@@ -1,4 +1,4 @@
-;;; init-go.el -- Configures `go-mode' preferences.
+;;; init-web-mode.el -- Configures `web-mode' preferences.
 ;;; Commentary:
 ;;; Code:
 
@@ -11,8 +11,6 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-(add-hook 'web-mode-hook #'(lambda () (smartparens-mode -1)))
 
 (provide 'init-web-mode)
 ;;; init-go.el ends here

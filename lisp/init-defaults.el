@@ -39,7 +39,7 @@
 (add-to-list 'auto-mode-alist '("\\.log\\'" . auto-revert-tail-mode))
 
 ;; Browser ring
-(global-set-key (kbd "s-V") 'helm-show-kill-ring)
+(global-set-key (kbd "s-V") 'consult-yank-from-kill-ring)
 
 ;; ==========================
 ;; -- Expand-region config --

@@ -28,8 +28,5 @@
 ;;; Cargo
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
 
-;;; Flycheck
-(add-hook 'rust-mode-hook 'flycheck-rust-setup)
-
 (provide 'init-rust)
 ;;; init-rust.el ends here
