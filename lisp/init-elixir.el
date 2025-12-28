@@ -21,12 +21,12 @@
 ;; (define-key alchemist-mode-map (kbd "C-c ?") 'alchemist-help-search-at-point)
 
 ;; To use ruby end mode
-(add-to-list 'elixir-mode-hook
-             (defun auto-activate-ruby-end-mode-for-elixir-mode ()
-               (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
-                    "\\(?:^\\|\\s-+\\)\\(?:do\\)")
-               (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
-               (ruby-end-mode +1)))
+;; (add-to-list 'elixir-mode-hook
+;;              (defun auto-activate-ruby-end-mode-for-elixir-mode ()
+;;                (set (make-variable-buffer-local 'ruby-end-expand-keywords-before-re)
+;;                     "\\(?:^\\|\\s-+\\)\\(?:do\\)")
+;;                (set (make-variable-buffer-local 'ruby-end-check-statement-modifiers) nil)
+;;                (ruby-end-mode +1)))
 
 ;; Comment here
 ;; Create a buffer-local hook to run elixir-format on save, only when we enable elixir-mode.

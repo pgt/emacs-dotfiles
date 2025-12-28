@@ -10,10 +10,10 @@
  ;; show column number at bottom bar
  column-number-mode t
  ;; disable anoying beep
- ring-bell-function 'ignore
- ;; improve rendering performance
- redisplay-dont-pause t
- )
+ ring-bell-function 'ignore)
+
+(when (boundp 'redisplay-dont-pause)
+  (setq redisplay-dont-pause t))
 
 (use-package lambda-themes
   :straight (:type git :host github :repo "lambda-emacs/lambda-themes")
@@ -106,7 +106,8 @@
 (add-hook 'compilation-mode-hook 'custom/use-smaller-font)
 
 ;; nice fonts in OS X
-(setq mac-allow-anti-aliasing t)
+(when (boundp 'mac-allow-anti-aliasing)
+  (setq mac-allow-anti-aliasing t))
 
 (provide 'init-appearance)
 ;;; init-appearance.el ends here

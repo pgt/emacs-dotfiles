@@ -2,31 +2,25 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path "/path/to/rust-mode/")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
-;;; Racer
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
+(with-eval-after-load 'rust-mode
+  (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+  (define-key rust-mode-map (kbd "C-c i") #'rust-format-buffer))
 
-;;; Completion
-(add-hook 'racer-mode-hook #'company-mode)
-
-(require 'rust-mode)
-(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
-;;; Rustfmt
-(defun my-rust-mode-hooks ()
-  (add-hook 'before-save-hook 'rust-format-buffer))
+;;; Rustfmt on save
+(add-hook 'rust-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'rust-format-buffer nil t)))
 
-(add-hook 'rust-mode-hook 'my-rust-mode-hooks)
-
-(define-key rust-mode-map (kbd "C-c i") #'rust-format-buffer)
+;;; Company-mode for completion
+(add-hook 'rust-mode-hook #'company-mode)
 
 ;;; Cargo
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(add-hook 'rust-mode-hook #'cargo-minor-mode)
 
 (provide 'init-rust)
 ;;; init-rust.el ends here

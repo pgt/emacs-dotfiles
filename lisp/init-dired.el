@@ -5,12 +5,14 @@
 (require 'dired)
 
 ;; Reload dired after making changes
-(--each '(dired-do-rename
-          dired-do-copy
-          dired-create-directory
-          wdired-abort-changes)
-  (eval `(defadvice ,it (after revert-buffer activate)
-	   (revert-buffer))))
+(defun my/dired-revert-after-operation (&rest _)
+  (revert-buffer nil t))
+
+(dolist (fn '(dired-do-rename
+              dired-do-copy
+              dired-create-directory
+              wdired-abort-changes))
+  (advice-add fn :after #'my/dired-revert-after-operation))
 
 ;;; Mark files and show the amount size
 (defun dired-get-size ()

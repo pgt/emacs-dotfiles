@@ -1,13 +1,8 @@
 ;;; init-packages.el --- Declare, install and update Emacs packages.
 ;;; Commentary:
 ;;; Code:
-(require 'package)
-(package-initialize)
 
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-
-;; upload straight: next-generation, purely functional package manager
+;; Bootstrap straight.el - next-generation, purely functional package manager
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name
@@ -24,23 +19,18 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(setq package-enable-at-startup nil)
+;; Install use-package via straight and integrate
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
 
-;; use-package initialization
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package)
-  (require 'use-package))
-
-; (use-package use-package-ensure-system-package
-;   :ensure t)
-
-; (setq use-package-always-ensure t)
-; (setq use-package-compute-statistics t)
+;; Compatibility shims for legacy Flymake integrations like scss-mode
+(defvar flymake-allowed-file-name-masks nil)
+(defvar flymake-err-line-patterns nil)
 
 ;;
 ;; A list of packages to ensure are installed at launch
 ;;
+
 ;; General
 (use-package s)
 (use-package smartscan)
@@ -48,9 +38,15 @@
 (use-package projectile)
 (use-package google-this)
 (use-package paredit)
-(use-package undo-tree)
 (use-package restclient)
 (use-package expand-region)
+(use-package company)
+(use-package flycheck)
+
+;; Undo tree (with config)
+(use-package undo-tree
+  :init
+  (global-undo-tree-mode 1))
 
 ;; Ruby
 (use-package rbenv)
@@ -60,7 +56,6 @@
 
 ;; Go-lang
 (use-package go-mode)
-(use-package company-go)
 (use-package gotest)
 
 ;; Search
@@ -70,6 +65,14 @@
 
 ;; YAML
 (use-package yaml-mode)
+
+;; Infrastructure
+(use-package terraform-mode
+  :hook ((terraform-mode . terraform-format-on-save-mode)
+         (terraform-mode . lsp-deferred)))
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init (setq lsp-keymap-prefix "C-c l"))
 
 ;; UI
 (use-package popup)
@@ -92,6 +95,10 @@
 (use-package js2-mode)
 (use-package js2-refactor)
 
+;; TypeScript
+(use-package typescript-mode)
+(use-package tide)
+
 ;; Git tools
 (use-package magit)
 (use-package git-timemachine)
@@ -106,11 +113,16 @@
 
 ;; Elixir
 (use-package elixir-mode)
-(use-package alchemist)
 
 ;; Frontend
 (use-package scss-mode)
 (use-package sass-mode)
+
+;; Containers
+(use-package dockerfile-mode)
+(use-package docker)
+(use-package kubernetes)
+(use-package k8s-mode)
 
 ;; PHP
 (use-package php-mode)
@@ -124,11 +136,23 @@
 
 ;; Rust
 (use-package rust-mode)
-(use-package racer)
 (use-package cargo)
 
 ;; Protobuffer
 (use-package protobuf-mode)
+
+;; Python
+(use-package python-pytest)
+(use-package lsp-pyright
+  :custom (lsp-pyright-langserver-command "pyright")
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp))))
+
+(use-package python-black
+  :demand t
+  :after python
+  :hook (python-mode . python-black-on-save-mode-enable-dwim))
 
 ;; Dart/Flutter
 (use-package dart-mode)
@@ -140,39 +164,38 @@
 ;; Fountain
 (use-package fountain-mode)
 
-; (use-package diminish)
-
 ;; Clojure
 (use-package cider)
 (use-package clojure-mode)
 (use-package clojure-mode-extra-font-locking)
 
-;; Undo tree
-(use-package undo-tree
-  :ensure t
-  :init
-  (global-undo-tree-mode 1))
+;; Claude/Copilot/AI
+(use-package claude-code-ide
+  :straight (:type git :host github :repo "manzaltu/claude-code-ide.el")
+  :bind ("C-c C-'" . claude-code-ide-menu)
+  :config
+  (claude-code-ide-emacs-tools-setup))
 
+(straight-use-package '(copilot :type git :host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
 (straight-use-package 'gptel)
 
-;; To require
+;; Transient (required by magit and others)
+(require 'transient)
+
+;; Built-in libraries to require
 (defvar libs-to-require
-  '(cl
+  '(cl-lib
     uniquify
-    linum
     whitespace
     recentf
     saveplace
     ansi-color
     dired-x
-    s
     sh-script
     sgml-mode
-    nxml-mode
-    yaml-mode
-    ))
+    nxml-mode))
 
-;; vendor loading
+;; Load built-in libraries
 (dolist (lib libs-to-require)
   (require lib))
 

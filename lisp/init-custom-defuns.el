@@ -59,19 +59,23 @@ Position the cursor at it's beginning, according to the current mode."
     (replace-regexp "[\s\t]+" " " nil (point-min) (point-max)))
   (indent-region (point-min) (point-max)))
 
-;; Copying without select the line
-(defadvice kill-ring-save (before slick-copy activate compile) "When called
-  interactively with no active region, copy a single line instead."
-	   (interactive (if mark-active (list (region-beginning) (region-end)) (message
-										"Copied line") (list (line-beginning-position) (line-beginning-position
-																2)))))
+;; Copying without selecting the line
+(defun my/kill-ring-save-advice (orig-fun beg end &rest args)
+  "When called without an active region, copy the current line."
+  (if (use-region-p)
+      (apply orig-fun beg end args)
+    (message "Copied line")
+    (apply orig-fun (line-beginning-position) (line-beginning-position 2) args)))
 
-(defadvice kill-region (before slick-cut activate compile)
-  "When called interactively with no active region, kill a single line instead."
-  (interactive
-   (if mark-active (list (region-beginning) (region-end))
-     (list (line-beginning-position)
-	   (line-beginning-position 2)))))
+(defun my/kill-region-advice (orig-fun beg end &rest args)
+  "When called without an active region, kill the current line."
+  (if (use-region-p)
+      (apply orig-fun beg end args)
+    (apply orig-fun (line-beginning-position) (line-beginning-position 2) args)))
+
+(advice-add 'kill-ring-save :around #'my/kill-ring-save-advice)
+(advice-add 'kill-region :around #'my/kill-region-advice)
+
 
 ;; Duplicate lines
 (defun duplicate-line (arg)
@@ -279,7 +283,11 @@ point reaches the beginning or end of the buffer, stop there."
 (defun transparency (value)
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive "nTransparency Value 0 - 100 opaque:")
-  (set-frame-parameter (selected-frame) 'alpha value))
+  (let ((frame (selected-frame)))
+    (when (boundp 'alpha-background)
+      (set-frame-parameter frame 'alpha-background value))
+    (when (boundp 'alpha)
+      (set-frame-parameter frame 'alpha (cons value value)))))
 
 (defun custom/class-from-file-name (file-name)
   "Guess the name of the class given a filename."

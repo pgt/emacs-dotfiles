@@ -23,7 +23,7 @@
  ruby-deep-indent-paren-style nil
  ruby-use-smie nil)
 
-(defadvice ruby-indent-line (after unindent-closing-paren activate)
+(defun my/ruby-unindent-closing-paren (&rest _)
   "Ensure desired behaviour for parenthesis indentation."
   (let ((column (current-column))
         indent offset)
@@ -38,6 +38,8 @@
     (when indent
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
+
+(advice-add 'ruby-indent-line :after #'my/ruby-unindent-closing-paren)
 
 
 (provide 'init-ruby)

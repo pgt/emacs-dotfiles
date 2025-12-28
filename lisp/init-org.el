@@ -35,7 +35,7 @@ Ex: (path-join \"/tmp\" \"a\" \"b\" \"c\") => /tmp/a/b/c"
   "Get the current buffer absolute path."
   (file-truename (or (buffer-file-name) default-directory)))
 
-(setq org-capture-directory (path-join *user-dropbox-directory* "org/captures"))
+(setq org-capture-directory (path-join *user-dropbox-directory* "~/code/org/captures"))
 
 (add-to-list 'load-path (expand-file-name "conf/orgmode" user-emacs-directory))
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
@@ -46,7 +46,7 @@ Ex: (path-join \"/tmp\" \"a\" \"b\" \"c\") => /tmp/a/b/c"
 (global-set-key "\C-cb" 'org-iswitchb)
 
 ;; Agenda setup
-(setq org-agenda-files (quote ("~/Dropbox/org/captures/")))
+;; (setq org-agenda-files (quote ("~/Dropbox/org/captures/")))
 
 ;; Custom Key Bindings
 (global-set-key (kbd "<f12>") 'org-agenda)

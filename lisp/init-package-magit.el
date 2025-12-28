@@ -12,12 +12,14 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; full screen magit-status
-(defadvice magit-status (around magit-fullscreen activate)
+(defun my/magit-status-fullscreen (orig-fun &rest args)
   (window-configuration-to-register :magit-fullscreen)
-  ad-do-it
+  (apply orig-fun args)
   (delete-other-windows))
 
-(global-set-key (kbd "C-c y") 'magit-status)
+(advice-add 'magit-status :around #'my/magit-status-fullscreen)
+
+(global-set-key (kbd "C-c y") #'magit-status)
 
 ;; Github integrations of Pull requests
 ;;(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)

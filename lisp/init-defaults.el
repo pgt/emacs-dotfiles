@@ -2,11 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'cl-lib)
+
 ;; import PATH environment variable
 (let ((path (shell-command-to-string ". ~/.bash_profile; echo -n $PATH")))
   (setenv "PATH" path)
   (setq exec-path
         (append (split-string-and-unquote path ":") exec-path)))
+
+(when (and (fboundp 'treesit-available-p)
+           (treesit-available-p))
+  (setq treesit-font-lock-level 4)
+  (dolist (mapping '((ruby-mode . ruby-ts-mode)
+                     (python-mode . python-ts-mode)))
+    (cl-pushnew mapping major-mode-remap-alist :test #'equal)))
 
 ;;;;;;;; Set numbers to lines
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)

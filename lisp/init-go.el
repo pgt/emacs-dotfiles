@@ -2,47 +2,37 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'go-mode)
-(setenv "GOPATH" (concat (getenv "HOME") "/gocode"))
-(setq exec-path (cons "/usr/local/go/bin" exec-path))
-(add-to-list 'exec-path (concat (getenv "HOME") "/gocode/bin"))
+(with-eval-after-load 'go-mode
+  (setenv "GOPATH" (concat (getenv "HOME") "/gocode"))
+  (setq exec-path (cons "/usr/local/go/bin" exec-path))
+  (add-to-list 'exec-path (concat (getenv "HOME") "/gocode/bin"))
 
-;;; Formating
-(add-hook 'before-save-hook 'gofmt-before-save)
+  (define-key go-mode-map (kbd "C-x f") #'go-test-current-file)
+  (define-key go-mode-map (kbd "C-x t") #'go-test-current-test)
+  (define-key go-mode-map (kbd "C-x p") #'go-test-current-project)
+  (define-key go-mode-map (kbd "C-x x") #'go-run))
 
-;;; Go tools
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+;;; Formatting
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook #'gofmt-before-save nil t)))
 
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-g") 'go-goto-imports)))
+;;; Go tools keybindings
+(add-hook 'go-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c C-r") #'go-remove-unused-imports)
+            (local-set-key (kbd "C-c C-g") #'go-goto-imports)
+            (local-set-key (kbd "C-c C-f") #'gofmt)
+            (local-set-key (kbd "C-c C-k") #'godoc)))
 
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-f") 'gofmt)))
-
-(add-hook 'go-mode-hook '(lambda ()
-			   (local-set-key (kbd "C-c C-k") 'godoc)))
-
-;;; Go Oracle
-(load "$GOPATH/src/code.google.com/p/go.tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
-
-
-;;; Company-mode - autocomplete
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook (lambda ()
-			  (set (make-local-variable 'company-backends) '(company-go))
-			  (company-mode)))
+;;; Company-mode for completion
+(add-hook 'go-mode-hook #'company-mode)
 
 ;;; Go run
-(defun go-run-buffer()
+(defun go-run-buffer ()
+  "Run the current Go buffer."
   (interactive)
   (shell-command (concat "go run " (buffer-name))))
-
-(define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
-(define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
-(define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
-(define-key go-mode-map (kbd "C-x x") 'go-run)
 
 (provide 'init-go)
 ;;; init-go.el ends here
