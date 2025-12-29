@@ -8,10 +8,18 @@
 (defvar typescript-ts-mode-hook nil)
 (defvar tsx-ts-mode-hook nil)
 
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(if (and (fboundp 'treesit-available-p)
+         (treesit-available-p)
+         (fboundp 'typescript-ts-mode))
+    (progn
+      (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
+      (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode)))
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))))
 
 (setq typescript-indent-level 2)
+
 
 (defun my/typescript--enable-completion-and-linting ()
   "Enable completion and linting helpers used across TypeScript buffers."

@@ -5,6 +5,9 @@
 (require 'copilot)
 
 (setq copilot-max-char 300000)
+(setq copilot-indent-offset-warning-disable t)
+(add-to-list 'copilot-indentation-alist '(prog-mode standard-indent))
+(add-to-list 'copilot-indentation-alist '(text-mode standard-indent))
 
 (defun my/copilot-setup ()
   "Enable Copilot in programming buffers and set keybindings."

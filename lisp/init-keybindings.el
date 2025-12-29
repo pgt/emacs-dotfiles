@@ -37,10 +37,13 @@
 (global-set-key (kbd "s-d") 'duplicate-line)
 
 (global-set-key (kbd "C-c e") 'custom/projectile-eshell)
-
+ 
 (global-set-key (kbd "C-c i") 'indent-region-or-buffer)
 
+(global-set-key (kbd "C-c t m") 'git-timemachine)
+ 
 ;;;;;; keybindings
+
 (global-set-key (kbd "M-n") (lambda () (interactive) (next-line 5)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (previous-line 5)))
 (global-set-key (kbd "C-q") 'comment-or-uncomment-region)

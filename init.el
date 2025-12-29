@@ -14,6 +14,7 @@
 (require 'init-custom-defuns)
 (require 'init-splash-screen)
 (require 'init-navigation)
+(require 'init-tree-sitter)
 
 ;; package-specific
 (require 'init-package-magit)
@@ -46,6 +47,7 @@
 
 (require 'init-appearance)
 (require 'init-keybindings)
+(require 'init-highlight)
 (require 'init-org)
 (require 'init-lsp)
 

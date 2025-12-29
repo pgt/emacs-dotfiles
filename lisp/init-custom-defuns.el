@@ -172,6 +172,25 @@ point reaches the beginning or end of the buffer, stop there."
     (kill-this-buffer)
     (select-window win-curr)))
 
+(defvar pgt/original-kill-this-buffer nil
+  "Backup of the original `kill-this-buffer' command.")
+
+(unless pgt/original-kill-this-buffer
+  (setq pgt/original-kill-this-buffer (symbol-function 'kill-this-buffer)))
+
+(defun pgt/kill-this-buffer (&optional event)
+  "Kill the buffer targeted by EVENT or the current buffer.
+
+Some packages override `kill-this-buffer' with mouse-only variants that
+expect EVENT parameters, which breaks keyboard invocations.  This wrapper
+keeps EVENT handling when provided while restoring keyboard support."
+  (interactive (list (when (eventp last-nonmenu-event) last-nonmenu-event)))
+  (if (and event pgt/original-kill-this-buffer)
+      (funcall pgt/original-kill-this-buffer event)
+    (kill-buffer (current-buffer))))
+
+(fset 'kill-this-buffer #'pgt/kill-this-buffer)
+
 ;; Colapse namespaces in ruby
 (defun rr/split-module-nesting ()
   (interactive)

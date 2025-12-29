@@ -42,6 +42,10 @@
 (use-package expand-region)
 (use-package company)
 (use-package flycheck)
+(use-package highlight)
+(use-package treesit-auto)
+(use-package combobulate
+  :straight (combobulate :type git :host github :repo "mickeynp/combobulate"))
 
 ;; Undo tree (with config)
 (use-package undo-tree
@@ -101,7 +105,8 @@
 
 ;; Git tools
 (use-package magit)
-(use-package git-timemachine)
+(use-package git-timemachine
+  :bind (("C-c t m" . git-timemachine)))
 (use-package git-gutter)
 (use-package diff-hl)
 

@@ -41,6 +41,10 @@
 
 (advice-add 'ruby-indent-line :after #'my/ruby-unindent-closing-paren)
 
+(with-eval-after-load 'ruby-ts-mode
+  (when (fboundp 'ruby-ts-mode-indent-line)
+    (advice-add 'ruby-ts-mode-indent-line :after #'my/ruby-unindent-closing-paren)))
+
 
 (provide 'init-ruby)
 ;;; init-ruby.el ends here

@@ -13,9 +13,12 @@
 (when (and (fboundp 'treesit-available-p)
            (treesit-available-p))
   (setq treesit-font-lock-level 4)
-  (dolist (mapping '((ruby-mode . ruby-ts-mode)
-                     (python-mode . python-ts-mode)))
-    (cl-pushnew mapping major-mode-remap-alist :test #'equal)))
+  (when (treesit-language-available-p 'ruby)
+    (cl-pushnew '(ruby-mode . ruby-ts-mode)
+                major-mode-remap-alist :test #'equal))
+  (when (treesit-language-available-p 'python)
+    (cl-pushnew '(python-mode . python-ts-mode)
+                major-mode-remap-alist :test #'equal)))
 
 ;;;;;;;; Set numbers to lines
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
