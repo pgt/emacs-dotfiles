@@ -42,7 +42,7 @@
 (require 'init-terraform)
 (require 'init-copilot)
 (require 'init-restclient)
-;; (require 'init-parinfer)
+(require 'init-parinfer)
 (require 'init-web-mode)
 
 (require 'init-appearance)

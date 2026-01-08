@@ -106,7 +106,8 @@ This document condenses the most important behaviors baked into this Emacs confi
 
 - Emacs 30’s native Tree-sitter build is enabled everywhere via `treesit-auto`. Run `M-x treesit-auto-install-all` the first time to download grammars for Bash, CSS, Go, HTML, JavaScript/TypeScript/TSX, JSON, Python, Ruby, Rust, TOML, and YAML.
 - `major-mode-remap-alist` makes those files open in their `*-ts-mode` equivalents automatically (e.g., `python-ts-mode`, `go-ts-mode`, `js-ts-mode`, `typescript-ts-mode`, `tsx-ts-mode`, `rust-ts-mode`, `ruby-ts-mode`). Language hooks were updated so formatter/test bindings keep working regardless of the backend.
-- `combobulate-mode` turns on by default for Tree-sitter buffers it supports (Python, JS/TS/TSX, JSON, CSS, YAML). Use the `C-c o` prefix for structural commands like slurp/barf, wrap, splice, and move, and fall back to Paredit/Smartparens for Lisp buffers.
+- `combobulate-mode` turns on by default for Tree-sitter buffers it supports (Python, JS/TS/TSX, JSON, CSS, YAML). Use the `C-c o` prefix for structural commands like slurp/barf, wrap, splice, and move, and fall back to Parinfer for Lisp buffers.
+- Lisp-family modes (Emacs Lisp, Clojure, Scheme, Common Lisp, plus their `*-ts-mode` variants) automatically enable `parinfer-mode`. Toggle it per buffer with `M-x parinfer-mode` or switch Parinfer’s behavior via `M-x parinfer-toggle-mode`.
 
 #### Git & Tooling
 

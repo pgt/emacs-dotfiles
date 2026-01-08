@@ -23,6 +23,9 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
+;; Explicitly install transient via straight to ensure newer version is used
+(straight-use-package 'transient)
+
 ;; Compatibility shims for legacy Flymake integrations like scss-mode
 (defvar flymake-allowed-file-name-masks nil)
 (defvar flymake-err-line-patterns nil)
@@ -46,6 +49,7 @@
 (use-package treesit-auto)
 (use-package combobulate
   :straight (combobulate :type git :host github :repo "mickeynp/combobulate"))
+(use-package parinfer)
 
 ;; Undo tree (with config)
 (use-package undo-tree
@@ -104,7 +108,8 @@
 (use-package tide)
 
 ;; Git tools
-(use-package magit)
+(use-package magit
+  :after transient)
 (use-package git-timemachine
   :bind (("C-c t m" . git-timemachine)))
 (use-package git-gutter)
@@ -125,8 +130,10 @@
 
 ;; Containers
 (use-package dockerfile-mode)
-(use-package docker)
-(use-package kubernetes)
+(use-package docker
+  :after transient)
+(use-package kubernetes
+  :after transient)
 (use-package k8s-mode)
 
 ;; PHP
@@ -147,7 +154,8 @@
 (use-package protobuf-mode)
 
 ;; Python
-(use-package python-pytest)
+(use-package python-pytest
+  :after transient)
 (use-package lsp-pyright
   :custom (lsp-pyright-langserver-command "pyright")
   :hook (python-mode . (lambda ()
@@ -183,9 +191,6 @@
 
 (straight-use-package '(copilot :type git :host github :repo "copilot-emacs/copilot.el" :files ("*.el" "dist")))
 (straight-use-package 'gptel)
-
-;; Transient (required by magit and others)
-(require 'transient)
 
 ;; Built-in libraries to require
 (defvar libs-to-require

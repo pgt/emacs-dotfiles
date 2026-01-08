@@ -1,0 +1,37 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "codex/gpt-5",
+  "keybinds": {
+    "command_list": "ctrl+o"
+  },
+  "mcp": {
+    "context7": {
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "MISSING"
+      }
+    },
+    "serena": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "/Users/pgt/code/emacs-dotfiles"
+      ]
+    }
+  },
+  "permission": {
+    "edit": "ask",
+    "bash": "ask",
+    "webfetch": "ask",
+    "doom_loop": "ask",
+    "external_directory": "ask"
+  }
+}

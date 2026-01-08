@@ -15,7 +15,8 @@
                                    python ruby rust toml tsx typescript yaml))
 
   (treesit-auto-add-to-auto-mode-alist 'all)
-  (treesit-auto-apply-remap 'simple)
+  (when (fboundp 'treesit-auto-apply-remap)
+    (treesit-auto-apply-remap 'simple))
   (global-treesit-auto-mode)
 
   (defvar my/treesit-mode-remap-table
